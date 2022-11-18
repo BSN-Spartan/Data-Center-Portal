@@ -5,7 +5,7 @@
 ### Introduction
 ------
 
-This document is a guide to the installation, configuration and operation of the BSN Spartan Network Data Center Portal System. This system connects to the Data Center Management System [v1.1.0]( [new jar](https://github.com/BSN-Spartan/Data-Center-System/releases/tag/v1.1.0).) and later version.
+This document is a guide to the installation, configuration and operation of the BSN Spartan Network Data Center Portal System. This system connects to the Data Center Management System [v1.1.0](https://github.com/BSN-Spartan/Data-Center-System/releases/tag/v1.1.0) and later version.
 
 ### Hardware Requirements
 ------
