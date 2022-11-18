@@ -1,0 +1,143 @@
+@charset "UTF-8";
+
+@mixin back-img($url, $bs: contain, $width: 100%, $height: 100%) {
+  background-image: url("" + $url);
+  background-size: $bs;
+  background-position: center;
+  width: $width;
+  height: $height;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+
+@for $i from 1 through 5 {
+  .support-10#{$i} {
+    @include back-img("/web-images/support_10" + $i + ".png");
+  }
+}
+.support-20-Telegram {
+  @include back-img("/web-images/support-20-Telegram.png");
+}
+
+.support-20-Whatsapp {
+  @include back-img("/web-images/support-20-Whatsapp.png");
+}
+.support-20-Reddit {
+  @include back-img("/web-images/support-20-Reddit.png");
+}
+
+.support-20-Discord {
+  @include back-img("/web-images/support-20-Discard.png");
+}
+.support-20-Twitter {
+  @include back-img("/web-images/support-20-Twitter.png");
+}
+
+.support-20-Facebook {
+  @include back-img("/web-images/support-20-Facebook.png");
+}
+.support-20-Email {
+   @include back-img("/web-images/support-20-Email.png");
+}
+.support-40-address {
+  @include back-img("/web-images/support-40-address.png");
+}
+
+.support-40-email {
+  @include back-img("/web-images/support-40-email.png");
+}
+.support-40-phone {
+   @include back-img("/web-images/support-40-phone.png");
+}
+@for $i from 1 through 3 {
+  .support-40#{$i} {
+    @include back-img("/web-images/support_40" + $i + ".png");
+  }
+}
+
+@for $i from 1 through 2 {
+  .crypto_00#{$i} {
+    @include back-img("/web-images/crypto_00" + $i + ".png");
+  }
+}
+.bg-step {
+   @include back-img("/web-images/step.png",cover,100%);
+}
+.bg-step2 {
+   @include back-img("/web-images/step2.png",cover,100%);
+}
+.main-index1-img {
+  @include back-img(
+    "/web-images/business-concept-with-team-close-up.png",
+    cover
+  );
+  @apply h-auto;
+}
+@for $i from 1 through 5 {
+  .website_0#{$i} {
+    @include back-img("/web-images/website_0" + $i + ".png");
+  }
+}
+.upload_001 {
+  @include back-img("/web-images/upload_001.png");
+}
+
+.bg-uc {
+  @include back-img("/web-images/bg-uc.png");
+}
+
+.spartan-close {
+  @include back-img("/web-images/spartan_close.png");
+}
+
+.form-file {
+  @include back-img("/web-images/file.png");
+}
+
+.slide-in-blurred-tl {
+  -webkit-animation: slide-in-blurred-tl 0.6s cubic-bezier(0.23, 1, 0.32, 1)
+    both;
+  animation: slide-in-blurred-tl 0.6s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+@-webkit-keyframes slide-in-blurred-tl {
+  0% {
+    -webkit-transform: translate(-100px, -100px) skew(80deg, 10deg);
+    transform: translate(-100px, -100px) skew(80deg, 10deg);
+    -webkit-transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
+    -webkit-filter: blur(40px);
+    filter: blur(40px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translate(0, 0) skew(0deg, 0deg);
+    transform: translate(0, 0) skew(0deg, 0deg);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-filter: blur(0);
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-blurred-tl {
+  0% {
+    -webkit-transform: translate(-100px, -100px) skew(80deg, 10deg);
+    transform: translate(-100px, -100px) skew(80deg, 10deg);
+    -webkit-transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
+    -webkit-filter: blur(40px);
+    filter: blur(40px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translate(0, 0) skew(0deg, 0deg);
+    transform: translate(0, 0) skew(0deg, 0deg);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-filter: blur(0);
+    filter: blur(0);
+    opacity: 1;
+  }
+}

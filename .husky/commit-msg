@@ -1,0 +1,11 @@
+#!/bin/sh
+commit_msg=`cat $1`
+echo $commit_msg
+msg_re="^(merge|feat|fix|docs|style|refactor|perf|test|chore|revert|build)(\(.+\))?: .{1,100}"
+
+if [[ ! $commit_msg =~ $msg_re ]]
+then
+	echo "erro"
+	exit 1
+fi
+exit 0
