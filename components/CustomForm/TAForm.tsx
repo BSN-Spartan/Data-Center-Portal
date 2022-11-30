@@ -18,7 +18,7 @@ const TAForm = (props: React.PropsWithChildren<PropTypes>) => {
         props.className + " py-10 lg:py-20 md:px-20 text-sm max-w-7xl mx-auto"
       }
     >
-      <form action="">
+      <form action="" noValidate>
         {props.children}
         {props.onClick ? (
           <div className="mt-10 flex">
@@ -44,6 +44,7 @@ const TAFormItem = (
     labelClassName?: string;
     validateStatus?: "error" | "success" | "warning";
     help?: string;
+    gasTip?: string;
     addonBefore?: () => JSX.Element;
     addonAfter?: () => JSX.Element;
   }>
@@ -79,7 +80,9 @@ const TAFormItem = (
           </div>
         </label>
       </div>
-
+      {props.gasTip && (
+        <div className={"text-sm mt-2 leading-5 "}>{props.gasTip}</div>
+      )}
       {props.help && (
         <div className={"text-sm mt-2 flex leading-5 "}>
           <ExclamationCircleIcon

@@ -5,6 +5,7 @@ import { RadioGroup } from "@headlessui/react";
 import { CheckCircleIcon } from "@heroicons/react/20/solid";
 import pay134557 from "@/public/web-images/pay-134557.png";
 import pay134546 from "@/public/web-images/pay-134546.png";
+import vector from "@/public/web-images/vector.png";
 import Image from "next/image";
 import { PaymentTypeRespVo } from "@/lib/models";
 
@@ -47,7 +48,7 @@ const TARadioGroup = ({
                 className={classNames(
                   checked ? "border-transparent" : "border-gray-300",
                   active ? "border-indigo-500 ring-2 ring-indigo-500" : "",
-                  "relative flex cursor-pointer rounded-lg border bg-white p-4 shadow-sm focus:outline-none"
+                  "relative flex cursor-pointer rounded-lg border bg-white p-2 shadow-sm focus:outline-none"
                 )}
               >
                 <div className="flex flex-1">
@@ -63,7 +64,16 @@ const TARadioGroup = ({
                       className="mt-1 flex flex-1 items-center text-sm text-gray-500 relative"
                     >
                       {mailingList.payType === 3 ? (
-                        <div>{t("Website_050")}</div>
+                        <div>
+                          <Image
+                            src={vector}
+                            className="w-full"
+                            layout="fill"
+                            objectFit="contain"
+                            alt=""
+                          />
+                          {/* <div>{t("Website_050")}</div> */}
+                        </div>
                       ) : (
                         <Image
                           src={

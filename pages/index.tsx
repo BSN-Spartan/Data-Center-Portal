@@ -78,7 +78,7 @@ const Home: NextPage<{
             {[
               {
                 type: "clickHandel",
-                stepNo: "No.001",
+                stepNo: "Step 1",
                 stepImg: "bg-step",
                 title: t("Website_058"),
                 description: () => (
@@ -92,7 +92,7 @@ const Home: NextPage<{
               },
               {
                 type: "",
-                stepNo: "No.002",
+                stepNo: "Step 2",
                 stepImg: "bg-step2",
                 title: t("Website_061"),
                 description: () => (
@@ -116,7 +116,7 @@ const Home: NextPage<{
               },
               {
                 type: "",
-                stepNo: "No.003",
+                stepNo: "Step 3",
                 stepImg: "bg-step2",
                 title: t("Website_065"),
                 description: () => (
@@ -130,7 +130,7 @@ const Home: NextPage<{
               },
               {
                 type: "openWin",
-                stepNo: "No.004",
+                stepNo: "Step 4",
                 stepImg: "bg-step2",
                 title: t("Website_068"),
                 description: () => (
@@ -151,7 +151,7 @@ const Home: NextPage<{
               },
               {
                 type: "clickHandel",
-                stepNo: "No.005",
+                stepNo: "Step 5",
                 stepImg: "bg-step2",
                 title: t("Website_072"),
                 description: () => (
@@ -164,7 +164,7 @@ const Home: NextPage<{
                 href: "https://www.spartan.bsn.foundation/main/contract",
               },
             ].map((item) => (
-              <div key={item.type} className="flex-1">
+              <div key={item.stepNo} className="flex-1">
                 <PaseCard
                   type={item.type}
                   stepNo={item.stepNo}

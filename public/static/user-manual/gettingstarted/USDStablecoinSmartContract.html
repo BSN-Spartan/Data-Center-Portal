@@ -1,0 +1,902 @@
+
+<!DOCTYPE HTML>
+<html lang="zn-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>SpartanUSD Stablecoin Smart Contract · User Manual</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-ancre-navigation/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-auto-scroll-table/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="nft.html" />
+    
+    
+    <link rel="prev" href="did.html" />
+    
+
+    
+        <link rel="shortcut icon" href="https://spartan.bsn.foundation/favicon.svg" type="image/x-icon">
+    
+    
+    
+        <link rel="apple-touch-icon" sizes="152x152" href="https://spartan.bsn.foundation/favicon.svg">
+    
+    
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://spartan.bsn.foundation/favicon.svg">
+    
+    
+        
+    
+    
+        
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../index.html">
+            
+                    
+                    BSN Spartan Data Center Portal User Manual
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="../overview/overview.html">
+            
+                <a href="../overview/overview.html">
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1.1" data-path="../overview/whatisBSNSpartan.html">
+            
+                <a href="../overview/whatisBSNSpartan.html">
+            
+                    
+                    What is BSN Spartan
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.2" data-path="../overview/roles.html">
+            
+                <a href="../overview/roles.html">
+            
+                    
+                    Roles
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.1.3" data-path="../overview/whyBSNSpartan.html">
+            
+                <a href="../overview/whyBSNSpartan.html">
+            
+                    
+                    Why BSN Spartan
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" data-path="gettingStarted.html">
+            
+                <a href="gettingStarted.html">
+            
+                    
+                    Getting Started
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.2.1" data-path="getaWalletAddress.html">
+            
+                <a href="getaWalletAddress.html">
+            
+                    
+                    Get a Wallet Address
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2.2" data-path="getAccessInformation.html">
+            
+                <a href="getAccessInformation.html">
+            
+                    
+                    Get Access Information
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2.3" data-path="gatewayAccessInstruction.html">
+            
+                <a href="gatewayAccessInstruction.html">
+            
+                    
+                    Gateway Access Instruction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2.4" data-path="topUpGasCredit.html">
+            
+                <a href="topUpGasCredit.html">
+            
+                    
+                    Top Up Gas Credit
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2.5" data-path="contractMarketplace.html">
+            
+                <a href="contractMarketplace.html">
+            
+                    
+                    Contract Marketplace
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2.6" data-path="spartanOfficialSmartContracts.html">
+            
+                <a href="spartanOfficialSmartContracts.html">
+            
+                    
+                    Spartan Official Smart Contracts (Optional)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.2.6.1" data-path="did.html">
+            
+                <a href="did.html">
+            
+                    
+                    Spartan DID 
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.1.2.6.2" data-path="USDStablecoinSmartContract.html">
+            
+                <a href="USDStablecoinSmartContract.html">
+            
+                    
+                    SpartanUSD Stablecoin Smart Contract
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2.6.3" data-path="nft.html">
+            
+                <a href="nft.html">
+            
+                    
+                    Spartan Official NFT Smart Contract
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.2.6.3.1" data-path="nft721.html">
+            
+                <a href="nft721.html">
+            
+                    
+                    Spartan-NFT-721
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2.6.3.2" data-path="nft1155.html">
+            
+                <a href="nft1155.html">
+            
+                    
+                    Spartan-NFT-1155
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3" data-path="../infoonthencchains/infoOntheNCChains.html">
+            
+                <a href="../infoonthencchains/infoOntheNCChains.html">
+            
+                    
+                    Info on the Non-Cryptocurrency Public Chains
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.4" data-path="../faqs/FAQs.html">
+            
+                <a href="../faqs/FAQs.html">
+            
+                    
+                    FAQs
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >SpartanUSD Stablecoin Smart Contract</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-anchor"></i><ul><li><span class="title-icon "></span><a href="#spartanusd-stablecoin-smart-contract"><b></b>SpartanUSD Stablecoin Smart Contract</a></li><ul><li><span class="title-icon "></span><a href="#basic-information"><b></b>Basic Information</a></li><li><span class="title-icon "></span><a href="#common-functions"><b></b>Common Functions</a></li><ul><li><span class="title-icon "></span><a href="#mint-spartanusd"><b></b>Mint SpartanUSD</a></li><li><span class="title-icon "></span><a href="#transfer-spartanusd"><b></b>Transfer SpartanUSD</a></li><li><span class="title-icon "></span><a href="#withdraw-spartanusd"><b></b>Withdraw SpartanUSD</a></li><li><span class="title-icon "></span><a href="#check-spartanusd-balance"><b></b>Check SpartanUSD Balance</a></li><li><span class="title-icon "></span><a href="#check-the-circulation-of-spartanusd"><b></b>Check the Circulation of SpartanUSD</a></li><li><span class="title-icon "></span><a href="#check-the-maximum-transaction-service-fee"><b></b>Check the Maximum Transaction Service Fee</a></li><li><span class="title-icon "></span><a href="#check-the-transaction-service-fee-ratio"><b></b>Check the Transaction Service Fee Ratio</a></li><li><span class="title-icon "></span><a href="#check-the-maximum-amount-of-susd-for-transfer"><b></b>Check the Maximum Amount of SUSD for Transfer</a></li><li><span class="title-icon "></span><a href="#check-the-maximum-amount-of-susd-for-withdraw"><b></b>Check the Maximum Amount of SUSD for Withdraw</a></li></ul></ul></ul></div><a href="#spartanusd-stablecoin-smart-contract" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="spartanusd-stablecoin-smart-contract"><a name="spartanusd-stablecoin-smart-contract" class="anchor-navigation-ex-anchor" href="#spartanusd-stablecoin-smart-contract"><i class="fa fa-link" aria-hidden="true"></i></a><font color="Black">SpartanUSD Stablecoin Smart Contract</font></h1>
+<p>The SpartanUSD Stablecoin is an ERC20-based Token, issued by the Spartan Network operators officially through the stablecoin contract on Spartan-III Chain (NC PolygonEdge), which is strictly anchored to USDC in a ratio of 1:1. The basic functions in the stablecoin contract are Mint, Transfer, Withdraw and Burn. The circulation of the stablecoin will be strictly controlled within a range not greater than the amount of USDC pledged by the stablecoin users into the USDC wallet on the Polygon mainnet.</p>
+<p><br></p>
+<h2 id="basic-information"><a name="basic-information" class="anchor-navigation-ex-anchor" href="#basic-information"><i class="fa fa-link" aria-hidden="true"></i></a><font color="Black"><span id="1">Basic Information</span></font></h2>
+<hr>
+<ul>
+<li><p><strong>SpartanUSD Contract Address:</strong> <code>0x1fD89dc1f4Ffbb797d471D6BB0dbb8EfEABdbe9c</code> on the Spartan-III chain</p>
+</li>
+<li><p><strong>USDC Pledge Wallet Address:</strong> <code>0x764b33c01a611597438f0286e946633685ed3d2f</code> on Polygon (Matic Network)</p>
+</li>
+<li><p><strong>Maximum Counting Accuracy:</strong> 6 Decimals (0.000001 SUSD)</p>
+</li>
+<li><p><strong>Name:</strong> SpartanUSD </p>
+</li>
+<li><p><strong>Symbol:</strong> SUSD</p>
+</li>
+<li><p><strong>Transfer Service Fee:</strong> 0.1% of the amount of SUSD transferred</p>
+</li>
+<li><p><strong>Withdraw Service Fee:</strong> 0.003 SUSD</p>
+</li>
+</ul>
+<p><br></p>
+<h2 id="common-functions"><a name="common-functions" class="anchor-navigation-ex-anchor" href="#common-functions"><i class="fa fa-link" aria-hidden="true"></i></a><font color="Black"><span id="2">Common Functions</span></font></h2>
+<hr>
+<h3 id="mint-spartanusd"><a name="mint-spartanusd" class="anchor-navigation-ex-anchor" href="#mint-spartanusd"><i class="fa fa-link" aria-hidden="true"></i></a><font color="Black"><span id="2.1">Mint SpartanUSD</span></font></h3>
+<p>By calling the official USDC contract (<strong>contract address: <code>0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174</code></strong> on Polygon (Matic Network), the user uses the transfer() method to transfer USDC equal to the expected issuance amount of SUSD to the account (<strong>account address: <code>0x764b33c01a611597438f0286e946633685ed3d2f</code></strong> on Polygon (Matic Network)).</p>
+<p>Spartan obtains transaction information by listening related events, and the SpartanUSD contract will be called to mint the same amount of SUSD to the user account of the Spartan-III chain (Powered by NC PolygonEdge) through the minter account of SpartanUSD. The Spartan-III user account address is the same as the address of the sender account of the USDC transaction on Polygon.</p>
+<blockquote>
+<p>[!note|style:flat]</p>
+<ul>
+<li>Please ensure the security of the private key of the Polygon account of the USDC transfer transaction sender, which will also be used as the private key of the Spartan-III wallet receiving SUSD.</li>
+</ul>
+</blockquote>
+<h3 id="transfer-spartanusd"><a name="transfer-spartanusd" class="anchor-navigation-ex-anchor" href="#transfer-spartanusd"><i class="fa fa-link" aria-hidden="true"></i></a><font color="Black"><span id="2.2">Transfer SpartanUSD</span></font></h3>
+<p>The user can transfer their SpartanUSD asset to any other Spartan-III wallet by calling the SUSD contract&#x2019;s transfer() method (<strong>contract address: <code>0x1fD89dc1f4Ffbb797d471D6BB0dbb8EfEABdbe9c</code></strong> on the Spartan-III Chain).</p>
+<p>The transfer() method will charge a service fee of 0.1% of the caller&apos;s transaction amount, and the service fee will not exceed 10 USD. </p>
+<ul>
+<li><strong>Input Parameters:</strong> Receiver Wallet Address (on the Spartan-III chain), Transfer Amount (Please enter a multiple of 10000, 10000 = 0.01SUSD);</li>
+</ul>
+<blockquote>
+<p>[!note|style:flat]</p>
+<ul>
+<li>The Transfer Amount needs to be a value which is a multiple of 10000, because SUSD&#x2019;s accuracy is 6 decimals, so, the value of 10000 is equivalent to 0.01 SUSD.</li>
+</ul>
+</blockquote>
+<ul>
+<li><p><strong>Output Parameters:</strong> A bool parameter shows successful or failed;</p>
+</li>
+<li><p><strong>Method Definition:</strong> transfer (address to, uint256 amount) returns (bool);</p>
+</li>
+<li><p><strong>Event Parameters:</strong> Sender Wallet Address, Receiver Wallet Address, Transfer Amount, Service Fee;</p>
+</li>
+<li><p><strong>Event Definition:</strong> Transfer (msg.sender, to, amount, serviceCharge);</p>
+</li>
+<li><p><strong>Example:</strong></p>
+</li>
+</ul>
+<pre><code class="lang-groovy">func TestTransfer(t *testing.T) {
+    cli, <span class="hljs-string">err :</span>= ethclient.Dial(NodeUrl)
+    <span class="hljs-keyword">if</span> err != nil {
+        log.Logger.Error(err)
+    }
+    instance, <span class="hljs-string">err :</span>= stablecoin.NewStablecoin(common.HexToAddress(Address), cli)
+    <span class="hljs-keyword">if</span> err != nil {
+        log.Logger.Error(err)
+    }
+    auth, <span class="hljs-string">err :</span>= eth.GenAuth(cli, PrivateKey)
+    <span class="hljs-keyword">if</span> err != nil {
+        log.Logger.Error(err)
+    }
+    tx, <span class="hljs-string">err :</span>= instance.Transfer(auth, common.HexToAddress(to), <span class="hljs-keyword">new</span>(big.Int).SetUint64(amount))
+    <span class="hljs-keyword">if</span> err != nil {
+        log.Logger.Error(err)
+    }
+    fmt.Println(<span class="hljs-string">&quot;tx Hash:&quot;</span>, tx.Hash().String())
+}
+</code></pre>
+<h3 id="withdraw-spartanusd"><a name="withdraw-spartanusd" class="anchor-navigation-ex-anchor" href="#withdraw-spartanusd"><i class="fa fa-link" aria-hidden="true"></i></a><font color="Black"><span id="2.3">Withdraw SpartanUSD</span></font></h3>
+<p>The user can withdraw their SpartanUSD asset to USDC which will be transferred to a Polygon (Matic Network) wallet by calling the SUSD contract&#x2019;s withdraw() method (<strong>contract address: <code>0x1fD89dc1f4Ffbb797d471D6BB0dbb8EfEABdbe9c</code></strong> on the Spartan-III Chain).</p>
+<p>The withdraw() method will charge a constant service fee of 0.003 SUSD.</p>
+<ul>
+<li><strong>Input Parameters:</strong> Receiver Account Address (on Polygon (Matic Network)), Withdraw Amount;</li>
+</ul>
+<blockquote>
+<p>[!note|style:flat]</p>
+<ul>
+<li>The SUSD balance of the sender account address needs to be greater than the total price of the transaction (withdraw amount + withdraw service fee).</li>
+</ul>
+</blockquote>
+<ul>
+<li><p><strong>Output Parameters:</strong> None;</p>
+</li>
+<li><p><strong>Method Definition:</strong> withdraw (address payee, uint256 amount);</p>
+</li>
+<li><p><strong>Event Parameter:</strong> Sender Wallet Address, Withdraw Amount, Service Fee, Receiver Wallet Address (on Polygon (Matic Network));</p>
+</li>
+<li><p><strong>Event Definition:</strong> Withdraw (msg.sender, amount, _withdrawFee, payee);</p>
+</li>
+<li><p><strong>Example:</strong></p>
+</li>
+</ul>
+<pre><code class="lang-groovy">func TestWithdraw(t *testing.T) {
+    cli, <span class="hljs-string">err :</span>= ethclient.Dial(NodeUrl)
+    <span class="hljs-keyword">if</span> err != nil {
+        log.Logger.Error(err)
+    }
+    instance, <span class="hljs-string">err :</span>= stablecoin.NewStablecoin(common.HexToAddress(Address), cli)
+    <span class="hljs-keyword">if</span> err != nil {
+        log.Logger.Error(err)
+    }
+    auth, <span class="hljs-string">err :</span>= eth.GenAuth(cli, PrivateKey)
+    <span class="hljs-keyword">if</span> err != nil {
+        log.Logger.Error(err)
+    }
+    tx, <span class="hljs-string">err :</span>= instance.Withdraw(auth, common.HexToAddress(payee), <span class="hljs-keyword">new</span>(big.Int).SetUint64(amount))
+    <span class="hljs-keyword">if</span> err != nil {
+        log.Logger.Error(err)
+    }
+    fmt.Println(<span class="hljs-string">&quot;tx Hash:&quot;</span>, tx.Hash().String())
+}
+</code></pre>
+<h3 id="check-spartanusd-balance"><a name="check-spartanusd-balance" class="anchor-navigation-ex-anchor" href="#check-spartanusd-balance"><i class="fa fa-link" aria-hidden="true"></i></a><font color="Black"><span id="2.4">Check SpartanUSD Balance</span></font></h3>
+<p>Users can check their SpartanUSD balance by calling the SUSD contract&#x2019;s balanceOf() method.</p>
+<ul>
+<li><p><strong>Input Parameters:</strong> Target Account Address (on the Spartan-III chain);</p>
+</li>
+<li><p><strong>Output Parameters:</strong> Balance;</p>
+</li>
+<li><p><strong>Method Definition:</strong> balanceOf (address account) view returns (uint256);</p>
+</li>
+<li><p><strong>Example:</strong></p>
+</li>
+</ul>
+<pre><code class="lang-groovy">func TestBalanceOf(t *testing.T) {
+    cli, <span class="hljs-string">err :</span>= ethclient.Dial(NodeUrl)
+    <span class="hljs-keyword">if</span> err != nil {
+        log.Logger.Error(err)
+    }
+    instance, <span class="hljs-string">err :</span>= stablecoin.NewStablecoin(common.HexToAddress(Address), cli)
+    <span class="hljs-keyword">if</span> err != nil {
+        log.Logger.Error(err)
+    }
+    balance, <span class="hljs-string">err :</span>= instance.BalanceOf(nil, common.HexToAddress(Address))
+    <span class="hljs-keyword">if</span> err != nil {
+        log.Logger.Error(err)
+    }
+    fmt.Println(<span class="hljs-string">&quot;balance:&quot;</span>, balance.String())
+}
+</code></pre>
+<h3 id="check-the-circulation-of-spartanusd"><a name="check-the-circulation-of-spartanusd" class="anchor-navigation-ex-anchor" href="#check-the-circulation-of-spartanusd"><i class="fa fa-link" aria-hidden="true"></i></a><font color="Black"><span id="2.5">Check the Circulation of SpartanUSD</span></font></h3>
+<p>Users can check the total circulation of SpartanUSD by calling the SUSD contract&#x2019;s totalSupply() method.</p>
+<p>After the mint() method, the total circulation will be increased by the amount of mint and after the withdraw() or burn() method, the total circulation will be decreased by the amount of withdraw or burn.</p>
+<ul>
+<li><p><strong>Input Parameters:</strong> None;</p>
+</li>
+<li><p><strong>Output Parameters:</strong> The Total Circulation of SUSD;</p>
+</li>
+<li><p><strong>Method Definition:</strong> totalSupply() view returns (uint256);</p>
+</li>
+<li><p><strong>Example:</strong></p>
+</li>
+</ul>
+<pre><code class="lang-groovy">func TestTotalSupply(t *testing.T) {
+    cli, <span class="hljs-string">err :</span>= ethclient.Dial(NodeUrl)
+    <span class="hljs-keyword">if</span> err != nil {
+        log.Logger.Error(err)
+    }
+    instance, <span class="hljs-string">err :</span>= stablecoin.NewStablecoin(common.HexToAddress(Address), cli)
+    <span class="hljs-keyword">if</span> err != nil {
+        log.Logger.Error(err)
+    }
+    totalSupply, <span class="hljs-string">err :</span>= instance.TotalSupply(nil)
+    <span class="hljs-keyword">if</span> err != nil {
+        log.Logger.Error(err)
+    }
+    fmt.Println(<span class="hljs-string">&quot;totalSupply:&quot;</span>, totalSupply.String())
+}
+</code></pre>
+<h3 id="check-the-maximum-transaction-service-fee"><a name="check-the-maximum-transaction-service-fee" class="anchor-navigation-ex-anchor" href="#check-the-maximum-transaction-service-fee"><i class="fa fa-link" aria-hidden="true"></i></a><font color="Black"><span id="2.6">Check the Maximum Transaction Service Fee</span></font></h3>
+<p>Users can check the maximum transaction service fee by calling the SUSD contract&#x2019;s TestMaximumTransferCharge() method.</p>
+<p>The return value is counted in units of 0.000001 SUSD (6 decimals), for example, 1000000 means 1 USUD.</p>
+<ul>
+<li><p><strong>Input Parameters:</strong> None;</p>
+</li>
+<li><p><strong>Output Parameters:</strong> The maximum transaction service fee;</p>
+</li>
+<li><p><strong>Method Definition:</strong> maximumTransferCharge() view returns (uint256);</p>
+</li>
+<li><p><strong>Example:</strong></p>
+</li>
+</ul>
+<pre><code class="lang-groovy">func TestMaximumTransferCharge(t *testing.T) {
+    cli, <span class="hljs-string">err :</span>= ethclient.Dial(NodeUrl)
+    <span class="hljs-keyword">if</span> err != nil {
+        log.Logger.Error(err)
+    }
+    instance, <span class="hljs-string">err :</span>= stablecoin.NewStablecoin(common.HexToAddress(Address), cli)
+    <span class="hljs-keyword">if</span> err != nil {
+        log.Logger.Error(err)
+    }
+    maximumTransferCharge, <span class="hljs-string">err :</span>= instance.MaximumTransferCharge(nil)
+    <span class="hljs-keyword">if</span> err != nil {
+        log.Logger.Error(err)
+    }
+    fmt.Println(<span class="hljs-string">&quot;maximumTransferCharge:&quot;</span>, maximumTransferCharge.String())
+}
+</code></pre>
+<h3 id="check-the-transaction-service-fee-ratio"><a name="check-the-transaction-service-fee-ratio" class="anchor-navigation-ex-anchor" href="#check-the-transaction-service-fee-ratio"><i class="fa fa-link" aria-hidden="true"></i></a><font color="Black"><span id="2.7">Check the Transaction Service Fee Ratio</span></font></h3>
+<p>Users can check the transaction service fee ratio by calling the SUSD contract&#x2019;s getTransferRatio() method.</p>
+<p>The return value is counted in units of 0.0001 (4 decimals), for example, 10 means 0.001 (0.1%).</p>
+<ul>
+<li><p><strong>Input Parameters:</strong> None;</p>
+</li>
+<li><p><strong>Output Parameters:</strong> the transaction service fee ratio (counted in units of 0.0001);</p>
+</li>
+<li><p><strong>Method Definition:</strong> getTransferRatio() view returns (uint256);</p>
+</li>
+<li><p><strong>Example:</strong></p>
+</li>
+</ul>
+<pre><code class="lang-groovy">func TestGetTransferRatio(t *testing.T) {
+    cli, <span class="hljs-string">err :</span>= ethclient.Dial(NodeUrl)
+    <span class="hljs-keyword">if</span> err != nil {
+        log.Logger.Error(err)
+    }
+    instance, <span class="hljs-string">err :</span>= stablecoin.NewStablecoin(common.HexToAddress(Address), cli)
+    <span class="hljs-keyword">if</span> err != nil {
+        log.Logger.Error(err)
+    }
+    transferRatio, <span class="hljs-string">err :</span>= instance.GetTransferRatio(nil)
+    <span class="hljs-keyword">if</span> err != nil {
+        log.Logger.Error(err)
+    }
+    fmt.Println(<span class="hljs-string">&quot;transferRatio:&quot;</span>, transferRatio.String())
+}
+</code></pre>
+<h3 id="check-the-maximum-amount-of-susd-for-transfer"><a name="check-the-maximum-amount-of-susd-for-transfer" class="anchor-navigation-ex-anchor" href="#check-the-maximum-amount-of-susd-for-transfer"><i class="fa fa-link" aria-hidden="true"></i></a><font color="Black"><span id="2.8">Check the Maximum Amount of SUSD for Transfer</span></font></h3>
+<p>Users can check the maximum amount of SUSD for transfer and the service fee for running a transfer of your input amount SUSD by calling the SUSD contract&#x2019;s queryTransferLimit() method.</p>
+<ul>
+<li><p><strong>Input Parameters:</strong> SUSD Amount of a transfer;</p>
+</li>
+<li><p><strong>Output Parameters:</strong> Service Fee, the Maximum Amount of SUSD;</p>
+</li>
+<li><p><strong>Method Definition:</strong> queryTransferLimit (uint256 amount) view returns (uint256 serviceCharge, uint256 maxTransferAmount);</p>
+</li>
+<li><p><strong>Example:</strong></p>
+</li>
+</ul>
+<pre><code class="lang-groovy">func TestQueryTransferLimit(t *testing.T) {
+    cli, <span class="hljs-string">err :</span>= ethclient.Dial(NodeUrl)
+    <span class="hljs-keyword">if</span> err != nil {
+        log.Logger.Error(err)
+    }
+    instance, <span class="hljs-string">err :</span>= stablecoin.NewStablecoin(common.HexToAddress(Address), cli)
+    <span class="hljs-keyword">if</span> err != nil {
+        log.Logger.Error(err)
+    }
+    outstruct, <span class="hljs-string">err :</span>= instance.QueryTransferLimit(nil, <span class="hljs-keyword">new</span>(big.Int).SetUint64(amount))
+    <span class="hljs-keyword">if</span> err != nil {
+        log.Logger.Error(err)
+    }
+    fmt.Println(<span class="hljs-string">&quot;ServiceCharge:&quot;</span>, outstruct.ServiceCharge.String())
+    fmt.Println(<span class="hljs-string">&quot;MaxTransferAmount:&quot;</span>, outstruct.MaxTransferAmount.String())
+}
+</code></pre>
+<h3 id="check-the-maximum-amount-of-susd-for-withdraw"><a name="check-the-maximum-amount-of-susd-for-withdraw" class="anchor-navigation-ex-anchor" href="#check-the-maximum-amount-of-susd-for-withdraw"><i class="fa fa-link" aria-hidden="true"></i></a><font color="Black"><span id="2.9">Check the Maximum Amount of SUSD for Withdraw</span></font></h3>
+<p>Users can check the maximum amount of SUSD for withdraw and the service fee for running a withdraw method by calling the SUSD contract&#x2019;s queryWithdrawLimit() method.</p>
+<ul>
+<li><p><strong>Input Parameters:</strong> None;</p>
+</li>
+<li><p><strong>Output Parameters:</strong> Service Fee, the Maximum Amount of SUSD for withdraw;</p>
+</li>
+<li><p><strong>Method Definition:</strong> queryWithdrawLimit() view returns (uint256 withdrawFee, uint256 maxWithdrawAmount);</p>
+</li>
+<li><p><strong>Example:</strong></p>
+</li>
+</ul>
+<pre><code class="lang-groovy">func TestQueryWithdrawLimit(t *testing.T) {
+    cli, <span class="hljs-string">err :</span>= ethclient.Dial(NodeUrl)
+    <span class="hljs-keyword">if</span> err != nil {
+        log.Logger.Error(err)
+    }
+    instance, <span class="hljs-string">err :</span>= stablecoin.NewStablecoin(common.HexToAddress(Address), cli)
+    <span class="hljs-keyword">if</span> err != nil {
+        log.Logger.Error(err)
+    }
+    outstruct, <span class="hljs-string">err :</span>= instance.QueryWithdrawLimit(nil)
+    <span class="hljs-keyword">if</span> err != nil {
+        log.Logger.Error(err)
+    }
+    fmt.Println(<span class="hljs-string">&quot;WithdrawFee:&quot;</span>, outstruct.WithdrawFee.String())
+    fmt.Println(<span class="hljs-string">&quot;MaxWithdrawAmount:&quot;</span>, outstruct.MaxWithdrawAmount.String())
+}
+</code></pre>
+<p><br>
+<br>
+<br> </p>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; 2022 Red Date (Hong Kong) Technology Limited all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification"> 
+
+</span></footer>
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="did.html" class="navigation navigation-prev " aria-label="Previous page: Spartan DID ">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="nft.html" class="navigation navigation-next " aria-label="Next page: Spartan Official NFT Smart Contract">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"SpartanUSD Stablecoin Smart Contract","level":"1.1.2.6.2","depth":4,"next":{"title":"Spartan Official NFT Smart Contract","level":"1.1.2.6.3","depth":4,"path":"gettingstarted/nft.md","ref":"gettingstarted/nft.md","articles":[{"title":"Spartan-NFT-721","level":"1.1.2.6.3.1","depth":5,"path":"gettingstarted/nft721.md","ref":"gettingstarted/nft721.md","articles":[]},{"title":"Spartan-NFT-1155","level":"1.1.2.6.3.2","depth":5,"path":"gettingstarted/nft1155.md","ref":"gettingstarted/nft1155.md","articles":[]}]},"previous":{"title":"Spartan DID ","level":"1.1.2.6.1","depth":4,"path":"gettingstarted/did.md","ref":"gettingstarted/did.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-fontsettings","-livereload","-sharing","-lunr","code","addcssjs","splitter","sharing-plus","hide-element","search-pro","insert-logo","tbfed-pagefooter","theme-comscore","favicon-absolute","popup","toggle-chapters","chapter-fold","ancre-navigation","auto-scroll-table","flexible-alerts"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © 2022 Red Date (Hong Kong) Technology Limited","modify_label":" ","modify_format":" "},"chapter-fold":{},"pluginsConfig":{"flexible-alerts":{"note":{"label":"Hinweis"},"tip":{"label":"Tipp"},"warning":{"label":"Warnung"},"danger":{"label":"Achtung"},"pluginsConfig":{"flexible-alerts":{"style":"callout","comment":{"label":"Comment","icon":"fa fa-comments","className":"info"}}}}},"splitter":{},"search-pro":{},"search":{},"addcssjs":{"css":[],"js":["js/custom.js"]},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"auto-scroll-table":{},"popup":{},"lunr":{"maxIndexSize":20000},"code":{"copyButtons":true},"favicon-absolute":{"appleTouchIconMore":{},"appleTouchIconPrecomposed152":"https://spartan.bsn.foundation/favicon.svg","appleTouchIconPrecomposedMore":{},"favicon":"https://spartan.bsn.foundation/favicon.svg","appleTouchIcon152":"https://spartan.bsn.foundation/favicon.svg"},"hide-element":{"elements":[".gitbook-link"]},"highlight":{},"theme-comscore":{},"ancre-navigation":{"associatedWithSummary":true,"float":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showLevel":true},"flexible-alerts":{"danger":{"className":"danger","icon":"fa fa-ban","label":"Attention"},"note":{"className":"info","icon":"fa fa-info-circle","label":"Note"},"style":"callout","tip":{"className":"tip","icon":"fa fa-lightbulb-o","label":"Tip"},"warning":{"className":"warning","icon":"fa fa-exclamation-triangle","label":"Warning"}},"sharing":{"facebook":true,"twitter":true,"qq":true,"weibo":true},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{},"insert-logo":{"style":"background:none;max-height:55px;min-height:55px;margin-left:-25px;","url":"../img/spartanlogo.svg"}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"User Manual","language":"zn-hans","gitbook":"*"},"file":{"path":"gettingstarted/USDStablecoinSmartContract.md","mtime":"2022-10-28T04:34:21.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-11-30T05:16:34.949Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-auto-scroll-table/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    
+    <script type="text/javascript" src="../js/custom.js"></script>
+    
+
+    </body>
+</html>
+

@@ -86,7 +86,9 @@
 .bg-uc {
   @include back-img("/web-images/bg-uc.png");
 }
-
+.meta-mask {
+  @include back-img("/web-images/metamask.png");
+}
 .spartan-close {
   @include back-img("/web-images/spartan_close.png");
 }

@@ -1,10 +1,12 @@
+/* eslint-disable react/no-unknown-property */
 import { useHook } from "@/components/useHook";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, Fragment } from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { UserManual, TermsOfService } from "@/components/CustomHeader";
+import { TermsOfService } from "@/components/CustomHeader";
 import { TAForm, TAFormItem } from "@/components/CustomForm/TAForm";
 import TAInput from "@/components/CustomForm/TAInput";
 import TASelect from "@/components/CustomForm/TASelect";
+import SideWin from "@/components/ComSideWin";
 import {
   isNotEmpty,
   openNewWin,
@@ -15,13 +17,15 @@ import isEmail from "validator/lib/isEmail";
 import {
   defaultV1PaymentTypeApi,
   defaultPaymentCreateOrderApi,
-  defaultPaymentCalcGaspriceApi,
+  defaultPaymentCalcGasCreditApi,
   defaultDcCaptchaSendApi,
   getDcChainListApi,
 } from "@/lib/api";
 import CustomTitle from "@/components/CustomTitle";
 import TARadioGroup from "@/components/CustomForm/TARadioGroup";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
+import { QuestionMarkCircleIcon } from "@heroicons/react/24/solid";
+import { Dialog, Transition } from "@headlessui/react";
 import { connectMetaMask } from "@/utils/ethereum";
 import Link from "next/link";
 
@@ -34,22 +38,12 @@ const TopUp: NextPage<{
 }> = ({ paymentTypes, chainType }) => {
   const { HeaderContext, t, getThrottleFn } = useHook(["website", "public"]);
   const [validateCodeNum, setValidateCodeNum] = useState<number>(0);
+  const [errorMsg, setValidateErrorMsg] = useState<string>("");
+  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState(chainType[0]);
-  useEffect(() => {
-    HeaderContext.setHeaderText(t("Website_010"));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-  useEffect(() => {
-    setFormData(() => {
-      return { ...formData, chainId: selected.value };
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selected]);
-  const [reloadNum, setReloadNum] = useState(0);
-  const [isSubmit, setIsSubmit] = useState({ tradeNo: "", show: false });
-  const [paymentType, setPaymentType] = useState<PaymentTypeRespVO>(
-    paymentTypes[0]
-  );
+  const calcGas = useRef("");
+  const agreeCheck = useRef(0);
   const [formData, setFormData] = useState({
     chainId: 1,
     chainAccountAddress: "",
@@ -60,8 +54,31 @@ const TopUp: NextPage<{
     payAmount: "",
     payType: 1,
     remarks: "",
-    agreeCheck: false,
+    // agreeCheck: false,
   });
+  useEffect(() => {
+    HeaderContext.setHeaderText(t("Website_010"));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  useEffect(() => {
+    setOpen(() => {
+      return open;
+    });
+  }, [open]);
+  useEffect(() => {
+    setFormData(() => {
+      return {
+        ...formData,
+        chainId: selected.value,
+      };
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selected]);
+  const [reloadNum, setReloadNum] = useState(0);
+  const [isSubmit, setIsSubmit] = useState({ tradeNo: "", show: false });
+  const [paymentType, setPaymentType] = useState<PaymentTypeRespVO>(
+    paymentTypes[0]
+  );
 
   const [errorFormText, setErrorFormText] = useState({
     chainId: "",
@@ -121,7 +138,8 @@ const TopUp: NextPage<{
           );
         break;
       case "agreeCheck":
-        if (!value) help = t("Website_007").replace("XXXX", t("Website_008"));
+        if (agreeCheck.current === 0)
+          help = t("Website_007").replace("XXXX", t("Website_008"));
         break;
       default:
         break;
@@ -156,6 +174,7 @@ const TopUp: NextPage<{
   const confirm = getThrottleFn(async () => {
     if (formData.chainId == 0)
       return showMessage("warning", "ChainList cannot be empty", "warning");
+    console.log(agreeCheck.current);
     if (
       verification("chainAccountAddress", formData?.chainAccountAddress) ||
       verification(
@@ -165,7 +184,7 @@ const TopUp: NextPage<{
       verification("email", formData.email) ||
       verification("captchaCode", formData.captchaCode) ||
       verification("gasCount", formData.gasCount) ||
-      verification("agreeCheck", formData.agreeCheck)
+      verification("agreeCheck", "")
     )
       return;
 
@@ -189,30 +208,31 @@ const TopUp: NextPage<{
       }, 300);
       return { tradeNo: res.data.data.tradeNo + "", show: true };
     });
-  }, 5000);
+  }, 3000);
   const getGasPrice = () => {
-    if (
-      reloadNum &&
-      isNotEmpty(formData.chainAccountAddress) &&
-      formData.gasCount
-    )
-      if (!verification("chainAccountAddress", formData.chainAccountAddress))
-        if (formData.chainId == 0)
-          return showMessage("warning", "ChainList cannot be empty", "warning");
+    calcGas.current = "";
+    setValidateErrorMsg("");
+    if (reloadNum && formData.gasCount)
+      if (formData.chainId == 0)
+        return showMessage("warning", "ChainList cannot be empty", "warning");
     if (!verification("gasCount", formData.gasCount))
-      defaultPaymentCalcGaspriceApi({
-        chainAccountAddress: formData.chainAccountAddress,
+      defaultPaymentCalcGasCreditApi({
+        // chainAccountAddress: formData.chainAccountAddress,
         chainId: formData.chainId,
-        gasCount: Number(formData.gasCount),
+        payAmount: Number(formData.gasCount),
       }).then((res) => {
         if (res.data && res.data.code === 1) {
           setFormData(() => {
             return {
               ...formData,
-              gasCount: res.data.data.gasCount + "",
-              payAmount: res.data.data.payAmount + "",
+              // gasCount: res.data.data.gasCount / 100 + "",
+              payAmount: parseFloat(res.data.data.payAmount / 100 + "") + "",
             };
           });
+          calcGas.current = res.data.data.gasCount;
+          if (res.data.data.errorMsg !== "")
+            setValidateErrorMsg(res.data.data.errorMsg);
+          // verification("gas", res.data.data.errorMsg);
         } else {
           setFormData(() => {
             return {
@@ -225,20 +245,15 @@ const TopUp: NextPage<{
   };
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (
-        reloadNum &&
-        isNotEmpty(formData.chainAccountAddress) &&
-        formData.gasCount
-      )
-        getGasPrice();
-    }, 1000);
+      if (reloadNum && formData.gasCount) getGasPrice();
+    }, 500);
     setReloadNum(reloadNum + 1);
     return () => {
       clearTimeout(timer);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [formData.gasCount, formData.chainAccountAddress, formData.chainId]);
-
+  }, [formData.gasCount, formData.chainId]);
+  // formData.gasCount, formData.chainAccountAddress,
   const toReset = () => {
     setFormData({
       chainId: 1,
@@ -250,7 +265,6 @@ const TopUp: NextPage<{
       payAmount: "",
       payType: 0,
       remarks: "",
-      agreeCheck: false,
     });
     setErrorFormText({
       chainId: "",
@@ -264,6 +278,9 @@ const TopUp: NextPage<{
       remarks: "",
       agreeCheck: "",
     });
+    agreeCheck.current = 0;
+    calcGas.current = "";
+    setValidateCodeNum(0);
     setIsSubmit({ tradeNo: "", show: false });
   };
 
@@ -271,7 +288,7 @@ const TopUp: NextPage<{
     <div className="lg:px-36 mb-40 px-8">
       {!isSubmit.show ? (
         <>
-          <CustomTitle title={"Top-up Gas Credit"} />
+          <CustomTitle title={"Top Up Gas Credit"} />
           <div>
             <TAForm onClick={confirm}>
               <TASelect
@@ -306,8 +323,10 @@ const TopUp: NextPage<{
                     <div>{t("Website_051")}</div>
                     <div className="inline-block float-right text-sm">
                       <a
-                        href={UserManual}
-                        target="_blank"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setOpen(!open);
+                        }}
                         className="text-theme cursor-pointer underline"
                       >
                         {t("Website_020")}
@@ -317,7 +336,10 @@ const TopUp: NextPage<{
                       </span>
                       <span
                         className="hidden md:inline-block text-theme cursor-pointer underline"
-                        onClick={connectMetaMask}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          connectMetaMask();
+                        }}
                       >
                         {t("Website_023")}
                       </span>
@@ -351,7 +373,7 @@ const TopUp: NextPage<{
                 />
               </TAFormItem>
               <TAFormItem
-                label={t("Website_052")}
+                label={t("Website_082")}
                 help={errorFormText.verifyChainAccountAddress}
                 required={true}
                 validateStatus={
@@ -381,7 +403,92 @@ const TopUp: NextPage<{
               <TAFormItem
                 label={() => (
                   <div className="flex-1 flex justify-between">
-                    <div>{t("Website_055")}</div>
+                    <div className="flex">
+                      {t("Website_055")}
+                      <QuestionMarkCircleIcon
+                        className={"w-5 h-5 text-sm ml-2 "}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setIsOpen(true);
+                        }}
+                      ></QuestionMarkCircleIcon>
+                    </div>
+                    {/* <div className="inline-block float-right text-sm">
+                      {calcGas.current}
+                    </div> */}
+                    <Transition appear show={isOpen} as={Fragment}>
+                      <Dialog
+                        as="div"
+                        className="relative z-10"
+                        onClose={() => {
+                          setIsOpen(false);
+                        }}
+                      >
+                        <Transition.Child
+                          as={Fragment}
+                          enter="ease-out duration-300"
+                          enterFrom="opacity-0"
+                          enterTo="opacity-100"
+                          leave="ease-in duration-200"
+                          leaveFrom="opacity-100"
+                          leaveTo="opacity-0"
+                        >
+                          <div className="fixed inset-0 bg-black bg-opacity-25" />
+                        </Transition.Child>
+
+                        <div className="fixed inset-0 overflow-y-auto">
+                          <div className="flex min-h-full items-center justify-center p-4 text-center">
+                            <Transition.Child
+                              as={Fragment}
+                              enter="ease-out duration-300"
+                              enterFrom="opacity-0 scale-95"
+                              enterTo="opacity-100 scale-100"
+                              leave="ease-in duration-200"
+                              leaveFrom="opacity-100 scale-100"
+                              leaveTo="opacity-0 scale-95"
+                            >
+                              <Dialog.Panel className="transform overflow-hidden rounded-xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                                <Dialog.Title
+                                  as="h3"
+                                  className="text-lg font-medium leading-6 text-gray-900"
+                                >
+                                  {t("Website_075")}
+                                </Dialog.Title>
+                                <div className="mt-2 leading-12">
+                                  <p className="text-sm text-gray-600 leading-12 mt-4">
+                                    {t("Website_076")}
+                                  </p>
+                                  <p className="text-sm text-gray-600 leading-12 mt-4">
+                                    &nbsp;&nbsp;{t("Website_077")}
+                                  </p>
+                                  <p className="text-sm text-gray-600 leading-12 mt-4">
+                                    &nbsp;&nbsp;{t("Website_078")}
+                                  </p>
+                                  <p className="text-sm text-gray-600 leading-12 mt-4">
+                                    &nbsp;&nbsp;{t("Website_079")}
+                                  </p>
+                                  <p className="text-sm text-gray-600 leading-12 mt-4 italic">
+                                    {t("Website_080")}
+                                  </p>
+                                </div>
+
+                                <div className="mt-4">
+                                  <button
+                                    type="button"
+                                    className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                                    onClick={() => {
+                                      setIsOpen(false);
+                                    }}
+                                  >
+                                    {t("Website_081")}
+                                  </button>
+                                </div>
+                              </Dialog.Panel>
+                            </Transition.Child>
+                          </div>
+                        </div>
+                      </Dialog>
+                    </Transition>
                   </div>
                 )}
                 addonAfter={() => (
@@ -391,34 +498,55 @@ const TopUp: NextPage<{
                       " text-sm px-8 h-full -ml-px m-auto inline-flex items-center rounded-r-md font-medium  bg-gray-300 "
                     }
                   >
-                    <span>{formData.chainId === 2 ? "UGAS" : "GWEI"}</span>
+                    {/* <span>{formData.chainId === 2 ? "UGAS" : "GWEI"}</span> */}
+
+                    <span>USD</span>
                   </button>
                 )}
-                help={errorFormText.gasCount}
+                help={errorMsg == "" ? errorFormText.gasCount : errorMsg}
+                gasTip={
+                  calcGas.current !== "" && formData.chainId !== 2
+                    ? "" + calcGas.current + " GWEI"
+                    : calcGas.current !== "" && formData.chainId === 2
+                    ? "" + calcGas.current + " UGAS"
+                    : ""
+                }
                 required={true}
-                validateStatus={errorFormText.gasCount ? "error" : "success"}
+                validateStatus={
+                  errorFormText.gasCount || errorMsg !== ""
+                    ? "error"
+                    : "success"
+                }
               >
                 <TAInput
                   type="number"
                   name="gasCount"
+                  required={true}
                   className="text-sm rounded-md"
                   value={formData.gasCount}
                   placeholder={t("PUB_Pleased").replace(
                     "****",
                     t("Website_056")
                   )}
-                  onBlur={(e) => {
-                    verification("gasCount", e.target.value);
+                  onBlur={() => {
+                    // verification("gasCount", e.target.value);
+                    getGasPrice();
                   }}
                   onChange={(e) =>
                     setFormData(() => {
                       verification(
                         "gasCount",
-                        e.target.value.replace(/^(0+)|[^\d]+/g, "$1")
+                        e.target.value.replace(
+                          /^\D*(\d*(?:\.\d{0,2})?).*$/g,
+                          "$1"
+                        )
                       );
                       return {
                         ...formData,
-                        gasCount: e.target.value.replace(/^(0+)|[^\d]+/g, "$1"),
+                        gasCount: e.target.value.replace(
+                          /^\D*(\d*(?:\.\d{0,2})?).*$/g,
+                          "$1"
+                        ),
                       };
                     })
                   }
@@ -498,11 +626,16 @@ const TopUp: NextPage<{
                       t("Website_051") + ": ",
                       formData.chainAccountAddress || "--",
                     ],
-                    [t("Website_055") + ": ", formData.gasCount || "--"],
+                    [
+                      t("Website_055") + ": ",
+                      formData.payAmount && formData.payAmount != "--"
+                        ? "" + parseFloat(formData.payAmount).toFixed(2)
+                        : "--",
+                    ],
                     [
                       t("Website_005") + ": ",
                       formData.payAmount && formData.payAmount != "--"
-                        ? "$" + (parseInt(formData.payAmount) / 100).toFixed(2)
+                        ? "$" + parseFloat(formData.payAmount).toFixed(2)
                         : "--",
                     ],
                   ];
@@ -532,7 +665,7 @@ const TopUp: NextPage<{
                 setSelected={setPaymentType}
                 mailingLists={paymentTypes || []}
               />
-              <TAFormItem className="mt-7" required={false}>
+              {/* <TAFormItem className="mt-7" required={false}>
                 <div>
                   <div className="flex h-5 items-center">
                     <input
@@ -546,6 +679,7 @@ const TopUp: NextPage<{
                           ...formData,
                           agreeCheck: !formData.agreeCheck,
                         });
+                        console.log(formData.agreeCheck);
                       }}
                       className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                     />
@@ -560,7 +694,30 @@ const TopUp: NextPage<{
                     {errorFormText.agreeCheck}
                   </p>
                 </div>
-              </TAFormItem>
+              </TAFormItem> */}
+              <div className="mt-5">
+                <div className="text-sm">
+                  <input
+                    type="checkbox"
+                    name="isOk"
+                    onChange={() => {
+                      agreeCheck.current = agreeCheck.current ? 0 : 1;
+                      console.log(agreeCheck.current);
+                      verification("agreeCheck", "");
+                    }}
+                    className="w-4 h-4 border-2 rounded focus:outline-none focus:ring-0 focus:ring-theme"
+                  />
+                  <span className="pl-2">{t("Website_009")}</span>
+                  <a href={TermsOfService} target="noreferrer">
+                    <span className=" text-blue-800 underline underline-offset-4 cursor-pointer">
+                      {t("Website_008")}
+                    </span>
+                  </a>
+                </div>
+                <p className="h-5 text-sm text-red-500 pt-2">
+                  {errorFormText.agreeCheck}
+                </p>
+              </div>
             </TAForm>
           </div>
         </>
@@ -569,9 +726,13 @@ const TopUp: NextPage<{
           <a id="toSubmitShow" href="#submitShow" className="h-0 w-0"></a>
           <CheckCircleIcon className="w-80 h-80 text-green-400" />
           <div className="mt-6 text-xl text-black font-bold">
-            {t("Website_030")} {isSubmit.tradeNo}
+            {t("Website_031")} {isSubmit.tradeNo}
           </div>
-          <div className="mt-6 text-xl text-black">{t("Website_029")}</div>
+          <div className="mt-6 text-xl text-black">
+            {/* {paymentType.payType == 3 ? t("Website_050") : t("Website_029")}
+             */}
+            {t("Website_050")}
+          </div>
           <div className="mt-10 grid grid-cols-1 gap-24">
             <button
               type="button"
@@ -585,6 +746,7 @@ const TopUp: NextPage<{
           </div>
         </div>
       )}
+      <SideWin open={open} setOpen={setOpen}></SideWin>
     </div>
   );
 };

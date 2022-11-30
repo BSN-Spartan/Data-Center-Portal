@@ -5,7 +5,7 @@
 ### Introduction
 ------
 
-This document is a guide to the installation, configuration and operation of the BSN Spartan Network Data Center Portal System. This system connects to the Data Center Management System [v1.1.0](https://github.com/BSN-Spartan/Data-Center-System/releases/tag/v1.1.0) and later version.
+This document is a guide to the installation, configuration and operation of the BSN Spartan Network Data Center Portal System. This system connects to the Data Center Management System [v1.1.0](https://github.com/BSN-Spartan/Data-Center-System/blob/main/Data%20Center%20System%20Upgrade%20Manual.md) and later version.
 
 ### Hardware Requirements
 ------
@@ -25,7 +25,7 @@ Recommended Requirements:
 
 ##### 1.1 NodeJS
 
-Node.js should be locally installed. [Download](https://nodejs.org/) from official website and install it.
+Node.js should be locally installed. Download from [official website](https://nodejs.org/) and install it. The version of Node.js should be 14 or later.
 
 ##### 1.2 PM2 Management Tool1
 After installing node.js, install pm2:
@@ -45,25 +45,29 @@ pm2 -v
 Download the data center portal deployment package to a local directory:
 
 ```
-git clone https://github.com/BSN-Spartan/Data-Center-Portal.git
+git clone https://github.com/BSN-Spartan/.git
 ```
 
 
 
 #### 3. Configure the Data Center Portal and Management System
 
-Go to the directory where the data center portal deployment package is located, open next.config.js file, and configure the port number of data center portal and the URL of management system, where the port number and the URL can be customized.
-
 ##### 3.1 Configure the Port Number of Data Center Portal
 
+Configure the port number in `Data-Center-Portal/package.json` file:
+
 ```
-const PORT = [3000];
+"scripts": {
+    "start": "next start -p 3000"
+  },
 ```
 
 ##### 3.2 Configure the URL of Data Center Management System
 
+Configure the URL in `Data-Center-Portal/next.config.js` file:
+
 ```
-const baseURL = [date center url];
+const baseURL = "date center url";
 ```
 
 *Note: After changing the the port number of data center portal or the URL of data center management system, you must run the command below to rebuild the project.*
@@ -115,23 +119,74 @@ pm2 stop server.js
 
 #### 5. User Manual Deployment
 
-After completing the deployment, the portal system uses the default user manual. You need to customize the user manual to meet the actual business requirements.
+After deployed the portal, you need to customize the default user manual to meet the actual business requirements.
 
-1. Edit the user manual. The path of the user manual is:
+We have provided the user manual in both word and markdown formats, which can be obtained through `Data-Center-Portal/public/static/` directory.
 
-    <u>data-center-portal/public/static/User Manual.doc</u>
+When using the user manual in markdown format, please ensure that you have installed gitbook locally. Here we take Windows system as an example to introduce how to install and use it:
 
-2. After edited, you can save it as a PDF file and replace the default user manual:
+1. Download and install Node.js from [Offical Website](https://nodejs.org/download/release/v10.12.0/), you need to use a lower version of Node.js to install gitbook.
 
-    <u>data-center-portal/public/static/User Manual.pdf</u>
+2. Open command prompt and check the version：
+   `node -v`   
+   v12.12.0  
+   `npm -v` 
+   6.11.3
 
-3. If you would like to change the name of the user manual, customize it in the following path:
+3. Install gitbook by command prompt：
+   `npm install gitbook-cli -g`
+   Run command below to check the version：
+   `gitbook --version`
+      CLI version: 2.3.2
+      GitBook version: 3.2.3
 
-    <u>data-center-portal/components/CustomHeader/index.tsx</u>
+4. Create a folder and run command below to check whether gitbook has been successfully installed:
+    `gitbook init`
+    
+    If installed, the following message will be returned:
+    ```
+    warn: no summary file in this book
+    info: create README.md
+    info: create SUMMARY.md
+    info: initialization is finished
+    ```
+5. Copy the user manual in word format and `user-manual` folder to this folder. The user manual in markdown format is saved in in `user-manual` folder.
 
-```
-export const UserManual = "/static/newName.pdf";
-```
+    <img src='image/usermanual.png' style='width:600px;' alt='getChainAccessInformation' title='getChainAccessInformation'>
+
+
+    You can edit the word document and then export it to the pdf version and store that file in the same path. 
+
+    Please keep the name consistent among different user manual formats. 
+
+6. Edit markdown documents. You can open `user-manual` folder through Visual Studio Code to edit the markdown document.
+
+- Click SUMMARY.md to change the directory. Please note that the directory structure is consistent with the word document.
+
+  <img src='image/summary.png' style='width:600px;' alt='summary' title='summary'>
+
+- Click README.md, edit the name, version and revision date of the user manual. If you do not need to provide the pdf version, you can delete the last row of data.
+
+  <img src='image/readme.png' style='width:600px;' alt='readme' title='readme'>
+
+- Configure the logo and copyright information of your online user manual in book.json.
+
+  <img src='image/bookjson.png' style='width:600px;' alt='bookjson' title='bookjsaon'>
+
+- The default user manual creates folders according to chapters. The contents of each chapter are stored in the corresponding folder as markdown documents. You can edit them directly.
+
+  <img src='image/edit.png' style='width:600px;' alt='edit' title='edit'>
+
+- After editing the markdown documents, you can check the user manual by typing `gitbook serve` command to generate html file. You can also directly type `gitbook build` command to generate the user manual in the terminal, and the generated manual will be stored in `_ Book` folder. After saving the file, press `Ctrl+C` to terminate the command.
+
+  <img src='image/build.png' style='width:600px;' alt='build' title='buid'>
+
+- Enable global search, replace `<a href="./">` with `<a href="./index. html">`, replace`< A href="../">` with `<a href="../index. html">`. 
+Then, find `index.html file` in `_book` folder and replace `../` with `./`.
+
+  <img src='image/search.png' style='width:600px;' alt='search' title='search'>
+
+- After the above operations are completed, replace the files in the `Data-Center-Portal/public/static/user-manual` folder in the server with the files in `_book` folder.
 
 #### 6. Terms of Service Deployment
 
@@ -143,11 +198,11 @@ After completing the deployment, the portal system uses the default Terms of Ser
 
 2. After edited, you can save it as a PDF file and replace the default Terms of Service:
 
-<u>data-center-portal/public/static/Terms Of Service.pdf</u
+<u>data-center-portal/public/static/Terms Of Service.pdf</u>
 
 3. If you would like to change the name of Terms of Serivce, customize it in the following path:
 
-<u>data-center-portal/components/CustomHeader/index.tsx</u
+<u>data-center-portal/components/CustomHeader/index.tsx</u>
 
 ```
 export const TermsOfService = "/static/newName.pdf";

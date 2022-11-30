@@ -1,5 +1,6 @@
 import { openNewWin } from "@/utils";
-import { connectMetaMask } from "@/utils/ethereum";
+import { useState, useEffect } from "react";
+import SideWin from "@/components/ComSideWin";
 interface PropsPaseCard {
   type: string;
   stepNo: string;
@@ -12,6 +13,12 @@ interface PropsPaseCard {
 }
 
 export default function ComIndexPaseCard(props: PropsPaseCard) {
+  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    setOpen(() => {
+      return open;
+    });
+  }, [open]);
   return (
     <div>
       <div
@@ -43,7 +50,7 @@ export default function ComIndexPaseCard(props: PropsPaseCard) {
               className="w-full"
               onClick={() => {
                 if (props.href == "metaMask") {
-                  connectMetaMask();
+                  setOpen(!open);
                 }
                 openNewWin(props.href);
               }}
@@ -65,6 +72,7 @@ export default function ComIndexPaseCard(props: PropsPaseCard) {
           )}
         </div>
       </div>
+      <SideWin open={open} setOpen={setOpen}></SideWin>
     </div>
   );
 }

@@ -1,10 +1,8 @@
-const PORT = 3000;
-const baseURL = "date center url";
+const baseURL = "Data-Center-System url";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   env: {
-    PORT: PORT,
     baseURL: baseURL,
   },
   compilerOptions: {
@@ -66,6 +64,10 @@ const nextConfig = {
         source: "/api/:path*",
         destination: baseURL + "/:path*",
       },
+      // {
+      //   source: "/static/user-manual/static/User%20Manual.pdf",
+      //   destination: baseURL + "/User Manual.pdf",
+      // },
     ];
   },
 };

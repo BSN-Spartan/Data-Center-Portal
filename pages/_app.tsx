@@ -4,6 +4,7 @@ import type { ReactElement, ReactNode } from "react";
 import { useEffect, useState, useCallback } from "react";
 import "../styles/spartan-img.scss";
 import "../styles/globals.scss";
+import "../styles/tipTitle.scss";
 import { appWithTranslation } from "next-i18next";
 import Head from "next/head";
 import ErrorBoundary from "@/components/ErrorBoundary";

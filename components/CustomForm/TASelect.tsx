@@ -55,14 +55,18 @@ const TASelect = (props: {
                     props.selectedChildren()
                   ) : props.multiple ? (
                     <span className="ml-3 block truncate">
-                      {selected.map((item: { [x: string]: string }) => {
-                        return (item[props?.optionLabel || " "] + " ").replace(
-                          ")",
-                          () => {
-                            return selected.length > 1 ? ")," : ")";
-                          }
-                        );
-                      })}
+                      {selected.map(
+                        (item: { [x: string]: string }, index: number) => {
+                          return (
+                            item[props?.optionLabel || " "] + " "
+                          ).replace(")", () => {
+                            return selected.length > 1 &&
+                              index != selected.length - 1
+                              ? "),"
+                              : ")";
+                          });
+                        }
+                      )}
                     </span>
                   ) : (
                     <span className="ml-3 block truncate">

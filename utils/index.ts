@@ -186,7 +186,7 @@ export function showMessage(
   div.className =
     "absolute maxmd:bottom-[10%] md:top-[10%] w-full scale-y-0 h-auto";
   div.innerHTML = `
-  <div class="flex rounded-md ${bg_className} p-4 mx-auto w-auto max-w-[75vw]">
+  <div class="flex rounded-md ${bg_className} p-4 mx-auto w-1/3 max-w-[75vw]">
       <div class="flex-shrink-0">
         ${Icon}
       </div>

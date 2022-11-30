@@ -21,7 +21,8 @@ import CustomFooter from "../CustomFooter";
 import IMG_LOGO from "@/public/web-images/LOGO.png";
 export const GetGas = "/main/top-up-gas";
 export const whitePaper = "/static/BSN Spartan Network White Paper.pdf";
-export const UserManual = "/static/User Manual.pdf";
+export const UserManual = "/static/user-manual/index.html";
+// export const UserManual = "/static/User Manual.pdf";
 export const TermsOfService = "/static/Terms Of Service.pdf";
 
 const catalogue = [
@@ -53,13 +54,23 @@ const catalogue1 = [
 ];
 const supports = [
   {
-    name: "Spartan Sponsor Contracts & SDKs",
-    href: "https://www.spartan.bsn.foundation/main/contract#SpartanContractsSDKs",
+    name: "BSN Official Contract Services",
+    href: "https://www.spartan.bsn.foundation/main/contract#ContractServices",
     description: "",
   },
   {
-    name: "Open Source Contract Projects",
-    href: "https://www.spartan.bsn.foundation/main/contract#OpenContractProjects",
+    name: "BSN Certified Smart Contracts",
+    href: "https://www.spartan.bsn.foundation/main/contract#SmartContracts",
+    description: "",
+  },
+  {
+    name: "BSN Beginner Smart Contracts",
+    href: "https://www.spartan.bsn.foundation/main/contract#BSmartContracts",
+    description: "",
+  },
+  {
+    name: "BSN Smart Contract Open Market",
+    href: "https://www.spartan.bsn.foundation/main/contract#ContractOpenMarket",
     description: "",
   },
 ];

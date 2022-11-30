@@ -98,6 +98,19 @@ export const defaultPaymentCalcGaspriceApi = (
 };
 /**
  * @description
+ * @param {CalcGasPriceReqVO} param
+ * @return {Promise<ResultInfoCalcGasPriceRespVO>}
+ */
+export const defaultPaymentCalcGasCreditApi = (
+  param: CalcGasPriceReqVO
+): AxiosPromise<ResultInfoCalcGasPriceRespVO> => {
+  return request("/v1/payment/calc/gasCredit", {
+    method: "POST",
+    data: param,
+  });
+};
+/**
+ * @description
  * @param {PaymentReqVO} param
  * @return {Promise<ResultInfoPaymentRespVO>}
  */

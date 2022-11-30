@@ -3,11 +3,12 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { getDcCaptchaGetApi, defaultUserJoinApi } from "@/lib/api";
 import { isNotEmpty, showMessage } from "@/utils";
-import { UserManual } from "@/components/CustomHeader";
+// import { UserManual } from "@/components/CustomHeader";
 import TAInput from "@/components/CustomForm/TAInput";
 import TASelect from "@/components/CustomForm/TASelect";
 import isEmail from "validator/lib/isEmail";
 import { TAForm, TAFormItem } from "@/components/CustomForm/TAForm";
+import SideWin from "@/components/ComSideWin";
 import { connectMetaMask } from "@/utils/ethereum";
 interface ChainType {
   label: string;
@@ -16,6 +17,7 @@ interface ChainType {
 export function ChainAccess({ chainType }: { chainType: Array<ChainType> }) {
   const { t } = useHook(["website", "public"]);
   const [validateCodeNum, setValidateCodeNum] = useState<number>(0);
+  const [open, setOpen] = useState(false);
   const timerRef = useRef(null);
   const [selected, setSelected] = useState([chainType[0]]);
   const [dataInfo, setDataInfo] = useState<{
@@ -36,6 +38,12 @@ export function ChainAccess({ chainType }: { chainType: Array<ChainType> }) {
     },
   });
   useEffect(() => {
+    setOpen(() => {
+      console.log(open);
+      return open;
+    });
+  }, [open]);
+  useEffect(() => {
     setDataInfo(() => {
       return {
         ...dataInfo,
@@ -48,7 +56,7 @@ export function ChainAccess({ chainType }: { chainType: Array<ChainType> }) {
     setDataInfo({
       email: "",
       captcha: "",
-      chainId: [1],
+      chainId: selected.map((obj) => Number(obj.value)),
     });
     setTAForms({
       help: {
@@ -137,7 +145,7 @@ export function ChainAccess({ chainType }: { chainType: Array<ChainType> }) {
     setValidateCodeNum(0);
     showMessage(
       "success",
-      t("PUB_Success").replace("****", t("PUB_Action")),
+      "We will send you access information about NC Chains via email !",
       "success"
     );
   };
@@ -150,18 +158,21 @@ export function ChainAccess({ chainType }: { chainType: Array<ChainType> }) {
         </div>
         <div className="mt-10 grid grid-cols gap-x-4 lg:flex pt-6 text-base md:text-2xl font-bold md:mt-14 underline">
           <div className="lg:flex-auto">
-            <a
-              href={UserManual}
-              target="_blank"
+            <div
+              onClick={() => {
+                setOpen(!open);
+              }}
               className="text-theme cursor-pointer underline"
             >
               {t("Website_020")}
-            </a>
+            </div>
           </div>
           <div className="lg:flex-auto">
             <span
               className="hidden md:inline-block text-theme cursor-pointer underline"
-              onClick={connectMetaMask}
+              onClick={() => {
+                connectMetaMask();
+              }}
             >
               {t("Website_023")}
             </span>
@@ -268,6 +279,7 @@ export function ChainAccess({ chainType }: { chainType: Array<ChainType> }) {
             />
           </TAFormItem>
         </TAForm>
+        <SideWin open={open} setOpen={setOpen}></SideWin>
       </div>
     </div>
   );
