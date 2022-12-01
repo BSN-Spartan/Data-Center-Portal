@@ -64,10 +64,6 @@ const nextConfig = {
         source: "/api/:path*",
         destination: baseURL + "/:path*",
       },
-      // {
-      //   source: "/static/user-manual/static/User%20Manual.pdf",
-      //   destination: baseURL + "/User Manual.pdf",
-      // },
     ];
   },
 };
