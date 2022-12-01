@@ -126,7 +126,7 @@ We have provided the user manual in both word and markdown formats, which can be
 When using the user manual in markdown format, please ensure that you have installed gitbook locally. Here we take Windows system as an example to introduce how to install and use it:
 
 1. Download and install Node.js from [Offical Website](https://nodejs.org/download/release/v10.12.0/), you need to use a lower version of Node.js to install gitbook.
-Note：Node.js versions lower than v12 are supported. If the node.js version is too high, the gitbook installation will fail.
+   Note：Node.js versions lower than v12 are supported. If the node.js version is too high, the gitbook installation will fail.
 
 2. Open command prompt and check the version：
    `node -v`   
