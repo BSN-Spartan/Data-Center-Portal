@@ -7,6 +7,10 @@ export default function Chains() {
       title: t("Website_034"),
       url: [
         {
+          name: t("About Spartan-I Chain"),
+          href: "https://spartan.bsnbase.io/static/user-manual/infoonthencchains/infoOntheNCChains.html#spartan-i-chain-powered-by-nc-ethereum",
+        },
+        {
           name: t("Website_035"),
           href: "https://ethereum.org/en/developers/docs/",
         },
@@ -30,6 +34,10 @@ export default function Chains() {
     {
       title: t("Website_039"),
       url: [
+        {
+          name: t("About Spartan-II Chain"),
+          href: "https://spartan.bsnbase.io/static/user-manual/infoonthencchains/infoOntheNCChains.html#spartan-ii-chain-powered-by-nc-cosmos",
+        },
         {
           name: t("Website_040"),
           href: "https://github.com/BSN-Spartan/NC-Cosmos/tree/main/docs/endpoints",
@@ -58,6 +66,10 @@ export default function Chains() {
     {
       title: t("Website_045"),
       url: [
+        {
+          name: t("About Spartan-III Chain"),
+          href: "https://spartan.bsnbase.io/static/user-manual/infoonthencchains/infoOntheNCChains.html#spartan-iii-chain-powered-by-nc-polygonedge",
+        },
         {
           name: t("Website_046"),
           href: "https://docs.polygon.technology/docs/edge/get-started/json-rpc-commands",
@@ -88,7 +100,7 @@ export default function Chains() {
     return text.indexOf(str);
   };
   return (
-    <div className="mt-8 lg:mt-20 2xl lg:flex">
+    <div className="mt-8 lg:mt-14 2xl lg:flex">
       {dataList.map((item, index) => {
         return (
           <div
@@ -104,7 +116,7 @@ export default function Chains() {
               </div>
             </div>
             <div className="bg-white rounded-md">
-              <ul className="px-8 py-4 min-h-[14rem]">
+              <ul className="px-8 py-4 min-h-[16rem]">
                 {item.url.map((item1, index1) => {
                   return (
                     <li

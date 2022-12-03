@@ -7,11 +7,7 @@ import {
   ShareIcon,
   ClipboardDocumentIcon,
 } from "@heroicons/react/24/outline";
-import {
-  ChevronDownIcon,
-  ChevronUpIcon,
-  ArrowLeftIcon,
-} from "@heroicons/react/24/solid";
+import { ArrowLeftIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import Image from "next/image";
 import { useHook } from "../useHook";
@@ -44,33 +40,17 @@ const catalogue = [
     description: "",
     Icon: ClipboardDocumentIcon,
   },
+  {
+    name: "Contract Marketplace",
+    href: "https://www.spartan.bsn.foundation/main/contract",
+    description: "",
+    Icon: ClipboardDocumentIcon,
+  },
 ];
 const catalogue1 = [
   {
     name: "Return to Foundation Website",
     href: "https://www.spartan.bsn.foundation",
-    description: "",
-  },
-];
-const supports = [
-  {
-    name: "BSN Official Contract Services",
-    href: "https://www.spartan.bsn.foundation/main/contract#ContractServices",
-    description: "",
-  },
-  {
-    name: "BSN Certified Smart Contracts",
-    href: "https://www.spartan.bsn.foundation/main/contract#SmartContracts",
-    description: "",
-  },
-  {
-    name: "BSN Beginner Smart Contracts",
-    href: "https://www.spartan.bsn.foundation/main/contract#BSmartContracts",
-    description: "",
-  },
-  {
-    name: "BSN Smart Contract Open Market",
-    href: "https://www.spartan.bsn.foundation/main/contract#ContractOpenMarket",
     description: "",
   },
 ];
@@ -181,7 +161,9 @@ export default function CustomHeader({
                   "font-medium hover:scale-110 cursor-pointer pb-2 whitespace-nowrap " +
                   activeClassName(item.href);
 
-                return item.name !== "White Paper" && item.name !== "GitHub" ? (
+                return item.name !== "White Paper" &&
+                  item.name !== "GitHub" &&
+                  item.name !== "Contract Marketplace" ? (
                   <Link key={item.name} href={"/" + item.href}>
                     <span
                       className={className}
@@ -203,75 +185,6 @@ export default function CustomHeader({
                   </a>
                 );
               })}
-
-              <Popover className="relative">
-                {({ open }) => (
-                  <>
-                    <Popover.Button
-                      className={classNames(
-                        "group inline-flex items-center rounded-md font-medium hover:scale-105 outline-none"
-                      )}
-                    >
-                      <p className={"pb-2 " + activeClassName("#Support")}>
-                        Contract Marketplace
-                      </p>
-                      {open ? (
-                        <ChevronUpIcon
-                          className={classNames(
-                            "ml-2 h-7 w-7 group-hover:scale-105 pb-2"
-                          )}
-                          aria-hidden="true"
-                        />
-                      ) : (
-                        <ChevronDownIcon
-                          className={classNames(
-                            "ml-2 h-7 w-7 group-hover:scale-105 pb-2"
-                          )}
-                          aria-hidden="true"
-                        />
-                      )}
-                    </Popover.Button>
-
-                    <Transition
-                      as={Fragment}
-                      enter="transition ease-out duration-200"
-                      enterFrom="opacity-0 translate-y-1"
-                      enterTo="opacity-100 translate-y-0"
-                      leave="transition ease-in duration-150"
-                      leaveFrom="opacity-100 translate-y-0"
-                      leaveTo="opacity-0 translate-y-1"
-                    >
-                      <Popover.Panel className="absolute z-10 -ml-4 mt-3 w-auto transform lg:left-1/2 lg:ml-0 lg:max-w-28 lg:-translate-x-1/2">
-                        <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
-                          <div className="relative bg-white px-5 py-6 sm:gap-8 sm:p-8">
-                            {supports.map((item) => (
-                              <a
-                                key={item.name}
-                                onClick={() => {
-                                  openNewWin(item.href);
-                                }}
-                              >
-                                <div>
-                                  <Popover.Button className="ml-4 -m-3 flex items-start rounded-lg px-6 py-4 w-full hover:bg-gray-50">
-                                    <div>
-                                      <p className="text-base font-medium text-gray-900 whitespace-nowrap">
-                                        {item.name}
-                                      </p>
-                                      <p className="mt-1 text-sm text-gray-500">
-                                        {item.description}
-                                      </p>{" "}
-                                    </div>
-                                  </Popover.Button>
-                                </div>
-                              </a>
-                            ))}
-                          </div>
-                        </div>
-                      </Popover.Panel>
-                    </Transition>
-                  </>
-                )}
-              </Popover>
             </Popover.Group>
             <div className="hidden space-x-8 lg:flex flex-1 justify-end ml-2">
               {catalogue1.map((item) =>
@@ -353,7 +266,8 @@ export default function CustomHeader({
                           </>
                         );
                         return item.name !== "White Paper" &&
-                          item.name !== "GitHub" ? (
+                          item.name !== "GitHub" &&
+                          item.name !== "Contract Marketplace" ? (
                           <Link key={item.name + "-mp"} href={"/" + item.href}>
                             <div>
                               <Popover.Button
@@ -378,52 +292,6 @@ export default function CustomHeader({
                         );
                       })}
                     </nav>
-                  </div>
-                </div>
-                <div className="py-6 px-5">
-                  <div className="grid grid-cols-2 gap-4">
-                    {supports.map((item) => (
-                      <a
-                        key={item.name + "-mp"}
-                        onClick={() => {
-                          openNewWin(item.href);
-                        }}
-                      >
-                        <div className="text-base text-left font-medium text-gray-900 hover:text-gray-700 cursor-pointer">
-                          <Popover.Button as="span">{item.name}</Popover.Button>
-                        </div>
-                      </a>
-                    ))}
-                  </div>
-                  <div className="mt-6">
-                    {catalogue1.map((item) =>
-                      item.href ? (
-                        <a
-                          key={item.name + "-mp"}
-                          onClick={() => {
-                            openNewWin(item.href);
-                          }}
-                        >
-                          <div className="flex w-full rounded-md border border-transparent text-base font-medium text-white shadow-sm bg-theme mb-4">
-                            <Popover.Button
-                              as="div"
-                              className="flex-1 flex items-center justify-center px-4 py-2"
-                            >
-                              {item.name}
-                            </Popover.Button>
-                          </div>
-                        </a>
-                      ) : (
-                        <Popover.Button
-                          key={item.name + "-mp"}
-                          as="p"
-                          onClick={() => setOpen(true)}
-                          className="w-full flex items-center justify-center rounded-md border border-transparent px-4 py-2 text-base font-medium text-white shadow-sm bg-theme mb-4"
-                        >
-                          {item.name}
-                        </Popover.Button>
-                      )
-                    )}
                   </div>
                 </div>
               </div>

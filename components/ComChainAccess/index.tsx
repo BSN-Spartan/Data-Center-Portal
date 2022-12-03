@@ -151,12 +151,12 @@ export function ChainAccess({ chainType }: { chainType: Array<ChainType> }) {
   };
 
   return (
-    <div className="mb-40">
-      <div id="" className="pt-12">
+    <div className="mb-4">
+      <div id="" className="pt-4">
         <div className="text-xl md:text-4xl font-bold md:mt-14">
-          Chain Access
+          Gain the Chain Access Information
         </div>
-        <div className="mt-10 grid grid-cols gap-x-4 lg:flex pt-6 text-base md:text-2xl font-bold md:mt-14 underline">
+        {/* <div className="mt-10 grid grid-cols gap-x-4 lg:flex pt-6 text-base md:text-2xl font-bold md:mt-14 underline">
           <div className="lg:flex-auto">
             <div
               onClick={() => {
@@ -184,14 +184,14 @@ export function ChainAccess({ chainType }: { chainType: Array<ChainType> }) {
               </span>
             </Link>
           </div>
-        </div>
+        </div> */}
       </div>
-
-      <div className="bg-white shadow-2xl px-4 py-8 md:px-36 md:py-12 md:my-14">
+      <div className="bg-white shadow-2xl px-4 md:px-32 md:mt-14 border rounded-md">
         <div className="md:text-2xl font-bold md:py-12">{t("Website_033")}</div>
         <TAForm
+          customStyle={true}
           onClick={saveFoundation}
-          className={"py-10 lg:py-20 text-sm mx-auto"}
+          className={"py-2 md:px-20 lg:py-2 max-w-7xl lg:pb-14 text-sm mx-auto"}
         >
           <TASelect
             setSelected={setSelected}

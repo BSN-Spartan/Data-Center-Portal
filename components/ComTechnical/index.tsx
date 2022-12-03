@@ -5,26 +5,34 @@ import { whitePaper, UserManual } from "@/components/CustomHeader";
 import Link from "next/link";
 
 export default function Technical({
+  children,
   sysConfigContactUs,
   sysConfigTecSupport,
 }: {
+  children: any;
   sysConfigContactUs: Array<DcSystemConfRespVO>;
   sysConfigTecSupport: Array<DcSystemConfRespVO>;
 }) {
   const { t } = useHook(["website"]);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [open, setOpen] = useState(false);
+  // const iframeList: SupportFace[] = [
+  //   { id: 0, name: "", url: "" },
+  //   { id: 1, name: "", url: "https://www.youtube.com/embed/PM8cT8rYZkg" },
+  //   // { id: 2, name: "", url: "https://www.youtube.com/embed/Gpor2jPR3Rc" },
+  // ];
+
   const technicalList: SupportFace[] = [
-    {
-      id: 1,
-      name: t("Website_016"),
-      url: whitePaper,
-      type: "pdf",
-    },
     {
       id: 2,
       name: t("Website_017"),
       url: UserManual,
+      type: "pdf",
+    },
+    {
+      id: 1,
+      name: t("Website_016"),
+      url: whitePaper,
       type: "pdf",
     },
     {
@@ -65,6 +73,22 @@ export default function Technical({
   return (
     <>
       <div id="Documentation" className="pt-2">
+        {/* <p className="text-xl lg:text-4xl font-bold">{t("Video Tutorial")}</p>
+        <div className="lg:grid grid-cols-3 gap-4 pt-6">
+          {iframeList.map((item, index) => {
+            return item.url ? (
+              <iframe
+                key={index}
+                className={["border-0 z-0 w-full h-80 lg:mx-10"].join(" ")}
+                src={item.url}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            ) : (
+              <div></div>
+            );
+          })}
+        </div> */}
         <p className="text-xl lg:text-4xl font-bold">{t("Website_013")}</p>
         <div className="grid grid-cols gap-x-4 lg:flex pt-6">
           {technicalList.map((item) => {
@@ -91,12 +115,13 @@ export default function Technical({
           })}
         </div>
       </div>
+      {children}
       {sysConfigTecSupport.length > 0 ? (
-        <div id="TechnicalSupport" className="pt-12">
-          <p className="text-xl lg:text-4xl font-bold pt-10 lg:pt-20">
+        <div id="TechnicalSupport" className="pt-6">
+          <p className="text-xl lg:text-4xl font-bold pt-10 lg:pt-16">
             {t("Website_014")}
           </p>
-          <div className="grid grid-cols-3 pt-6 lg:grid-cols-8 lg:pt-16">
+          <div className="grid grid-cols-3 pt-6 lg:grid-cols-8 lg:pt-12">
             {sysConfigTecSupport.map((item) => {
               return (
                 <Fragment key={"supportList" + item.confId}>
@@ -149,8 +174,8 @@ export default function Technical({
         </div>
       ) : null}
       {sysConfigContactUs.length > 0 ? (
-        <div id="ContactUs" className="pt-12">
-          <p className="text-xl lg:text-4xl font-bold pt-10 lg:pt-20">
+        <div id="ContactUs" className="pt-4">
+          <p className="text-xl lg:text-4xl font-bold pt-10 lg:pt-14">
             {t("Website_015")}
           </p>
           <div className="pt-4">

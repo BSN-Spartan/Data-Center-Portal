@@ -1,14 +1,14 @@
 # Summary
 
 
-* [BSN Spartan Data Center Portal User Manual](README.md)
+* [BSN Spartan Data Center User Manual](README.md)
     * [Overview](overview/overview.md)
         * [What is BSN Spartan](overview/whatisBSNSpartan.md)
         * [Roles](overview/roles.md)
         * [Why BSN Spartan](overview/whyBSNSpartan.md)                     
     * [Getting Started](gettingstarted/gettingStarted.md)       
         * [Get a Wallet Address](gettingstarted/getaWalletAddress.md)  
-        * [Get Access Information](gettingstarted/getAccessInformation.md) 
+        * [Gain the Chain Access Information](gettingstarted/gainthechainaccessinformation.md) 
         * [Gateway Access Instruction](gettingstarted/gatewayAccessInstruction.md)                 
         * [Top Up Gas Credit](gettingstarted/topUpGasCredit.md)             
         * [Contract Marketplace](gettingstarted/contractMarketplace.md)

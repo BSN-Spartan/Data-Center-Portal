@@ -53,11 +53,12 @@ const Home: NextPage<{
       <div className="px-8 md:px-20 xl:px-24 py-8">
         <div className="pt-12">
           <p
-            className="text-base md:text-2xl text-[#767676] leading-7 break-words mb-12"
+            className="text-base md:text-2xl text-[#767676] leading-7 break-words"
             style={{ whiteSpace: "pre-line" }}
           >
             {sysConfig.introduce}
           </p>
+          <br />
           <p className="text-base md:text-2xl text-[#767676] leading-7">
             {t("Website_026")}{" "}
             <a
@@ -182,27 +183,28 @@ const Home: NextPage<{
         <div className="" id="chainAccess">
           <ChainAccess chainType={chainType} />
         </div>
-        <div id="NonCryptocurrencyPublicChains" className="">
-          <p className="text-xl md:text-4xl font-bold md:mt-14">
-            Learn about the BSN Spartan Network
-          </p>
-          <p
-            className="md:text-2xl font-bold md:mt-14 underline cursor-pointer"
-            onClick={() => {
-              openNewWin(
-                "https://www.spartan.bsn.foundation/static/quick-start/4learnNon-CryptocurrencyPublicChains/4.html"
-              );
-            }}
-          >
-            Learn More
-          </p>
-          <Chains />
-        </div>
         <div className="pt-12 md:pt-16">
           <Technical
             sysConfigContactUs={sysConfigContactUs}
             sysConfigTecSupport={sysConfigTecSupport}
-          />
+          >
+            <div id="NonCryptocurrencyPublicChains" className="">
+              <p className="text-xl md:text-4xl font-bold md:mt-10">
+                {t("Website_089")}
+              </p>
+              {/* <p
+                className="md:text-2xl font-bold md:mt-14 underline cursor-pointer"
+                onClick={() => {
+                  openNewWin(
+                    "https://www.spartan.bsn.foundation/static/quick-start/4learnNon-CryptocurrencyPublicChains/4.html"
+                  );
+                }}
+              >
+                Learn More
+              </p> */}
+              <Chains />
+            </div>
+          </Technical>
         </div>
       </div>
     </>

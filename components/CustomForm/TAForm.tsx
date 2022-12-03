@@ -3,6 +3,7 @@ import { useHook } from "../useHook";
 import { ExclamationCircleIcon } from "@heroicons/react/24/solid";
 
 interface PropTypes {
+  customStyle: boolean;
   className?: string;
   onClick?: () => void;
 }
@@ -15,7 +16,10 @@ const TAForm = (props: React.PropsWithChildren<PropTypes>) => {
   return (
     <div
       className={
-        props.className + " py-10 lg:py-20 md:px-20 text-sm max-w-7xl mx-auto"
+        props.customStyle
+          ? props.className + ""
+          : props.className +
+            " py-10 lg:py-20 md:px-20 text-sm max-w-7xl mx-auto"
       }
     >
       <form action="" noValidate>

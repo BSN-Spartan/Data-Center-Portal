@@ -29,11 +29,11 @@ A private key is a secret number that is used in cryptography, similar to a pass
 
 <br/>
 
-## <font color=Black><span id="3">What is a Virtual Data Center?</span></font>
+## <font color=Black><span id="3">What is a Spartan Virtual Data Center?</span></font>
 ---
 
 
-A Virtual Data Center is a set of locally installed software systems that contains one or more registered full nodes of different NC Public Chains. Each Virtual Data Center has one NTT wallet and is eligible to receive Node Establishment and Data Center Monthly Incentives. 
+A Spartan Virtual Data Center is a set of locally installed software systems that contains one or more registered full nodes of different NC Public Chains. Each Virtual Data Center has one NTT wallet and is eligible to receive Node Establishment and Data Center Monthly Incentives. 
 
 
 <br/>
