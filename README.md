@@ -27,7 +27,7 @@ Recommended Requirements:
 
 Node.js should be locally installed. Download from [official website](https://nodejs.org/) and install it. The version of Node.js should be 14 or later.
 
-##### 1.2 PM2 Management Tool1
+##### 1.2 PM2 Management Tool
 After installing node.js, install pm2:
 
 ```
@@ -39,6 +39,7 @@ Check whether pm2 is successfully installed:
 pm2 -v
 ```
 
+Please be noted that PM2 is not a must, it's a node application management tool that we recommended, you can use whatever you like.
 
 #### 2. Download the Data Center Portal Deployment Package
 
