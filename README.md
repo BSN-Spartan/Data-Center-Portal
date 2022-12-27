@@ -39,7 +39,7 @@ Note: Data Center Gateway is provided by the Data Center Operator to its end-use
 Download the data center portal deployment package to a local directory:
 
 ```
-git clone https://github.com/BSN-Spartan/.git
+git clone https://github.com/BSN-Spartan/Data-Center-Portal.git
 ```
 
 
