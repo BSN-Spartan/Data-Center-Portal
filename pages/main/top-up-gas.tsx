@@ -290,7 +290,7 @@ const TopUp: NextPage<{
         <>
           <CustomTitle title={"Top Up Gas Credit"} />
           <div>
-            <TAForm onClick={confirm}>
+            <TAForm customStyle={false} onClick={confirm}>
               <TASelect
                 setSelected={setSelected}
                 optionLabel={"label"}
