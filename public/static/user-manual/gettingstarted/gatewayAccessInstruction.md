@@ -7,12 +7,11 @@
 ## <font color=Black><span id="1">Key Parameters</span></font>
 ---
 
-- **Access key:** `accessKey`
+- **Access key:** `accessKey`, created in the portal, the user cannot access the blockchain without the key.
 
-- **Target chain type:** `chainType`
+- **Target chain type:** `chainType`, configured in the data center system, the message cannot be forwarded if it's wrong.
 
-- **Protocol:** `protocol`
-
+- **Protocol:** `protocol`, message-passing protocol, e.g. http, grpc.
 
 <br/>
 
@@ -24,21 +23,14 @@
 
 - `https://[domain:port]/api/[accessKey]/[chainType]/rpc/[chain_path]`
 
-> [!Note|style:flat]
-
-> - *`[chain_path]` is not required, can be null.*
-
 - **Example:** `https://[domain:port]/api/015416c06ef74ac38a92521792f97e7d/spartanone/rpc`
+
 
 <br/>
 
 ### <font color=Black><span id="2.2">WebSocket Request</span></font>
 
 - `wss://[domain:port]/api/[accessKey]/[chainType]/ws/[chain_path]`
-
-> [!Note|style:flat]
-
-> - *`[chain_path]` is not required, can be null.*
 
 - **Example:** `wss://[ domain:port]/api/015416c06ef74ac38a92521792f97e7d/spartanone/ws`
 
@@ -54,10 +46,18 @@
 
 - x-api-chain-type: `[chainType]`
 
+<br/>
 
 > [!Note|style:flat]
 
+> - *`[domain]`: domain name, you can apply it by yourself.*
+
+> - *`[port]`: the port number to distinguish different protocols, e.g. http, grpc, you can define it yourself.*
+
+> - *`[chain_path]`: is not required, can be null, user can add this parameter if needed.*
+
 > - *The access information can be found in the notification email of Network Access Information.*
+
 
 
 

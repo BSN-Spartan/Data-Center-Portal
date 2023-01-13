@@ -24,6 +24,7 @@ module.exports = {
       xxl: "1600px",
       "2xl": "1536px",
       maxmd: { max: "767px" },
+      "4xl": "1800px",
     },
     extend: {
       colors,

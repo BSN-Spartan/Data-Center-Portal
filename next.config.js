@@ -1,4 +1,4 @@
-const baseURL = "Data-Center-System url";
+const baseURL = "data center url";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {

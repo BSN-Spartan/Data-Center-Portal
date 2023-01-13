@@ -139,3 +139,12 @@ export const defaultV1PaymentTypeApi =
   (): Promise<ResultInfoListPaymentTypeRespVO> => {
     return getFetch("/v1/payment/type", {});
   };
+/**
+ * @description
+ * @return {Promise<ResultInfoListPaymentTypeRespVO>}
+ */
+export const defaultTermsServiceApi = (): AxiosPromise<ResultInfo> => {
+  return request("/ground/portalconfiguration/query/treaty", {
+    method: "GET",
+  });
+};

@@ -373,7 +373,7 @@ const TopUp: NextPage<{
                 />
               </TAFormItem>
               <TAFormItem
-                label={t("Website_082")}
+                label={t("Website_087")}
                 help={errorFormText.verifyChainAccountAddress}
                 required={true}
                 validateStatus={
@@ -708,7 +708,7 @@ const TopUp: NextPage<{
                     className="w-4 h-4 border-2 rounded focus:outline-none focus:ring-0 focus:ring-theme"
                   />
                   <span className="pl-2">{t("Website_009")}</span>
-                  <a href={TermsOfService} target="noreferrer">
+                  <a href={"/main/terms-of-service"} target="noreferrer">
                     <span className=" text-blue-800 underline underline-offset-4 cursor-pointer">
                       {t("Website_008")}
                     </span>

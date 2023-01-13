@@ -1,6 +1,6 @@
 import { useHook } from "@/components/useHook";
 import { useState, useEffect, useRef } from "react";
-import Link from "next/link";
+// import Link from "next/link";
 import { getDcCaptchaGetApi, defaultUserJoinApi } from "@/lib/api";
 import { isNotEmpty, showMessage } from "@/utils";
 // import { UserManual } from "@/components/CustomHeader";
@@ -9,7 +9,7 @@ import TASelect from "@/components/CustomForm/TASelect";
 import isEmail from "validator/lib/isEmail";
 import { TAForm, TAFormItem } from "@/components/CustomForm/TAForm";
 import SideWin from "@/components/ComSideWin";
-import { connectMetaMask } from "@/utils/ethereum";
+// import { connectMetaMask } from "@/utils/ethereum";
 interface ChainType {
   label: string;
   value: number;
@@ -154,7 +154,7 @@ export function ChainAccess({ chainType }: { chainType: Array<ChainType> }) {
     <div className="mb-4">
       <div id="" className="pt-4">
         <div className="text-xl md:text-4xl font-bold md:mt-14">
-          Gain the Chain Access Information
+          {t("Website_088")}
         </div>
         {/* <div className="mt-10 grid grid-cols gap-x-4 lg:flex pt-6 text-base md:text-2xl font-bold md:mt-14 underline">
           <div className="lg:flex-auto">

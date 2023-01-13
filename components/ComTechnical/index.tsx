@@ -185,7 +185,7 @@ export default function Technical({
                   key={"contactList" + item.confId}
                   className={
                     "flex items-center pt-6 lg:pt-10 text-[#767676]" +
-                    (item.confCode == "emil" ? "cursor-pointer" : "")
+                    (item.confCode == "email" ? "cursor-pointer" : "")
                   }
                 >
                   <div
@@ -194,7 +194,7 @@ export default function Technical({
                     }
                   ></div>
                   <div className={"flex-1 ml-4 text-base"}>
-                    {item.confCode == "emil" ? (
+                    {item.confCode == "email" ? (
                       <a
                         className=" text-theme hover:text-theme"
                         href={"mailto:" + item.confValue}

@@ -8,9 +8,9 @@
 
 <br/>
 
-#### <center><font color=Black>version 1.1.1</font></center>
+#### <center><font color=Black>version 1.1.2</font></center>
 
-#### <center><font color=Black>Nov. 30, 2022</font></center>
+#### <center><font color=Black>January 13th, 2023</font></center>
 
 <br/>
 

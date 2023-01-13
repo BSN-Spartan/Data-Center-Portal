@@ -37,7 +37,7 @@ Spartan obtains transaction information by listening related events, and the Spa
 
 > [!note|style:flat]
 
-> - Please ensure the security of the private key of the Polygon account of the USDC transfer transaction sender, which will also be used as the private key of the Spartan-III wallet receiving SUSD.
+> - *Please ensure the security of the private key of the Polygon account of the USDC transfer transaction sender, which will also be used as the private key of the Spartan-III wallet receiving SUSD.*
 
 ### <font color=Black><span id="2.2">Transfer SpartanUSD</span></font>
 
@@ -52,7 +52,7 @@ The transfer() method will charge a service fee of 0.1% of the caller's transact
 
 > [!note|style:flat]
 
-> - The Transfer Amount needs to be a value which is a multiple of 10000, because SUSD’s accuracy is 6 decimals, so, the value of 10000 is equivalent to 0.01 SUSD.
+> - *The Transfer Amount needs to be a value which is a multiple of 10000, because SUSD’s accuracy is 6 decimals, so, the value of 10000 is equivalent to 0.01 SUSD.*
 
 - **Output Parameters:** A bool parameter shows successful or failed;
 
@@ -100,7 +100,7 @@ The withdraw() method will charge a constant service fee of 0.003 SUSD.
 
 > [!note|style:flat]
 
-> - The SUSD balance of the sender account address needs to be greater than the total price of the transaction (withdraw amount + withdraw service fee).
+> - *The SUSD balance of the sender account address needs to be greater than the total price of the transaction (withdraw amount + withdraw service fee).*
 
 - **Output Parameters:** None;
 

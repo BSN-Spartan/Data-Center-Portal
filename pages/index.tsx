@@ -1,8 +1,7 @@
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Link from "next/link";
-import { openNewWin } from "@/utils";
 import PaseCard from "@/components/ComIndex/paseCard";
-import { GetGas, whitePaper, UserManual } from "@/components/CustomHeader";
+import { GetGas, UserManual } from "@/components/CustomHeader";
 import Technical from "@/components/ComTechnical";
 import { useHook } from "@/components/useHook";
 import { propTypesValidator } from "@/utils";
@@ -52,14 +51,21 @@ const Home: NextPage<{
       </div>
       <div className="px-8 md:px-20 xl:px-24 py-8">
         <div className="pt-12">
-          <p
+          <div
+            className="text-base md:text-2xl text-[#767676] leading-7 break-words"
+            style={{ whiteSpace: "pre-line" }}
+            dangerouslySetInnerHTML={{ __html: sysConfig.introduce }}
+          >
+            {/* {sysConfig.introduce.replace(/<.*?>/gi, "")} */}
+          </div>
+          {/* <p
             className="text-base md:text-2xl text-[#767676] leading-7 break-words"
             style={{ whiteSpace: "pre-line" }}
           >
             {sysConfig.introduce}
           </p>
-          <br />
-          <p className="text-base md:text-2xl text-[#767676] leading-7">
+          <br /> */}
+          {/* <p className="text-base md:text-2xl text-[#767676] leading-7">
             {t("Website_026")}{" "}
             <a
               href={whitePaper}
@@ -69,7 +75,7 @@ const Home: NextPage<{
               {t("Website_027")}
             </a>
             .
-          </p>
+          </p> */}
         </div>
         <div className="pt-12" id="getStarted">
           <div className="text-xl lg:text-4xl font-bold pb-20">

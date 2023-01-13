@@ -1,4 +1,4 @@
-# <font color=Black>Info on the Non-Cryptocurrency Public Chains</font>
+# <font color=Black>Information on the Non-Cryptocurrency Public Chains</font>
 
 A Non-Cryptocurrency Public Chain is a transformed public chain framework based on an existing public chain. Gas Credit transfers are not permitted between standard wallets. There are no cryptocurrency incentives for mining or participating in consensus. On Spartan Network, there are three Non-Cryptocurrency Public Chains at launch. We expect to add more in the foreseeable future.
 
@@ -21,7 +21,7 @@ Ethereum-based networks have two identifiers, a network ID and a chain ID. Altho
 
 > [!Tip|style:flat]
 
-> - For detailed installation documentation, please refer to [**GitHub**](https://github.com/BSN-Spartan/NC-Ethereum#readme).
+> - For detailed installation documentation, please refer to [**GitHub**](https://github.com/BSN-Spartan/NC-Ethereum/blob/main/README.md).
 
 
 
@@ -80,7 +80,7 @@ The Spartan-II Chain is a Cosmos-based network which has two identifiers, a netw
 
 > [!Tip|style:flat]
 
-> - For detailed installation instructions, please refer to [**GitHub**](https://github.com/BSN-Spartan/NC-Cosmos).
+> - For detailed installation instructions, please refer to [**GitHub**](https://github.com/BSN-Spartan/NC-Cosmos/blob/main/README.md).
 
 
 ### <font color=Black><span id="2.2">Resources</span></font> 
@@ -127,7 +127,7 @@ The Spartan-III Chain (Powered by NC PolygonEdge) network has two identifiers, a
 
 > [!Tip|style:flat]
 
-> - For detailed installation instructions, please refer to [**GitHub**](https://github.com/BSN-Spartan/NC-PolygonEdge).
+> - For detailed installation instructions, please refer to [**GitHub**](https://github.com/BSN-Spartan/NC-PolygonEdge/blob/main/README.md).
 
 
 

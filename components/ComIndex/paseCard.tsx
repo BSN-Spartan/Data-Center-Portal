@@ -29,14 +29,14 @@ export default function ComIndexPaseCard(props: PropsPaseCard) {
       >
         {props.stepNo}
       </div>
-      <div className="bg-white sm:h-[30rem] lg:h-[45rem] md:h-[40rem] shadow-2xl px-4 py-4 md:px-4 md:py-8">
+      <div className="bg-white sm:h-[30rem] lg:h-[45rem] md:h-[40rem] 3xl:h-[42rem] 4xl:h-[40rem] shadow-2xl px-4 py-4 md:px-4 md:py-8">
         <div className={"h-20 m-auto md:h-24 " + props.image}></div>
         <div className="my-6 text-center">
           <p className="font-bold text-[1rem] md:text-[1.2rem] md:h-[2.4rem]">
             {props.title}
           </p>
         </div>
-        <div className="pb-6 md:h-[18rem] lg:h-[22rem] mt-2 lg:mt-5 text-[1rem] md:text-[1.2rem] text-[#767676]">
+        <div className="pb-6 md:h-[18rem] lg:h-[22rem] 3xl:h-[20rem] 4xl:h-[18rem] mt-2 lg:mt-5 text-[1rem] md:text-[1.2rem] text-[#767676]">
           {typeof props.description !== "string" ? (
             props.description()
           ) : (
@@ -55,7 +55,7 @@ export default function ComIndexPaseCard(props: PropsPaseCard) {
                 openNewWin(props.href);
               }}
             >
-              <div className="w-full text-[1rem] md:text-[1rem] text-center py-2 px-2 md:px-4 md:py-3 inline-flex items-center justify-center border border-transparent font-medium rounded-full shadow-sm text-white bg-theme hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-theme cursor-pointer">
+              <div className="w-full md:h-14 text-[1rem] md:text-[1rem] text-center py-2 px-2 md:px-4 md:py-3 inline-flex items-center justify-center border border-transparent font-medium rounded-full shadow-sm text-white bg-theme hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-theme cursor-pointer">
                 {props.buttonName}
               </div>
             </div>
@@ -65,7 +65,7 @@ export default function ComIndexPaseCard(props: PropsPaseCard) {
               href={props.href}
               target={props.type == "openWin" ? "_blank" : ""}
             >
-              <div className="w-full text-[1rem] md:text-[1rem] text-center py-2 px-2 md:px-4 md:py-3 inline-flex items-center justify-center border border-transparent font-medium rounded-full shadow-sm text-white bg-theme hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-theme cursor-pointer">
+              <div className="w-full md:h-14 text-[1rem] md:text-[1rem] text-center py-2 px-2 md:px-4 md:py-3 inline-flex items-center justify-center border border-transparent font-medium rounded-full shadow-sm text-white bg-theme hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-theme cursor-pointer">
                 {props.buttonName}
               </div>
             </a>

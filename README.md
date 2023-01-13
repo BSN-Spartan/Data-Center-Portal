@@ -5,7 +5,7 @@
 ## Introduction
 ------
 
-This document is a guide to the installation, configuration and operation of the BSN Spartan Network Data Center Portal System. This system connects to the [Data Center Management System v1.1.0](https://github.com/BSN-Spartan/Data-Center-System/blob/main/Data%20Center%20System%20Upgrade%20Manual.md) and later version.
+This document is a guide to the installation, configuration and operation of the BSN Spartan Network Data Center Portal System. This system connects to the [Data Center Management System v1.2.0](https://github.com/BSN-Spartan/Data-Center-System/blob/main/Data%20Center%20System%20Upgrade%20Manual.md) and later version.
 
 ## Hardware Requirements
 ------
@@ -204,23 +204,3 @@ Then, find `index.html file` in `_book` folder and replace `../` with `./`.
   <img src='image/search.png' style='width:600px;' alt='search' title='search'>
 
 - After the above operations are completed, replace the files in the `Data-Center-Portal/public/static/user-manual` folder in the server with the files in `_book` folder.
-
-### 6. Terms of Service Deployment
-
-After completing the deployment, the portal system uses the default Terms of Service. You need to customize the Terms of Service to meet the actual business requirements.
-
-1. Edit the Terms of Service. The path of the Terms of Service is:
-
-<u>data-center-portal/public/static/Terms Of Service.doc</u>
-
-2. After edited, you can save it as a PDF file and replace the default Terms of Service:
-
-<u>data-center-portal/public/static/Terms Of Service.pdf</u>
-
-3. If you would like to change the name of Terms of Serivce, customize it in the following path:
-
-<u>data-center-portal/components/CustomHeader/index.tsx</u>
-
-```
-export const TermsOfService = "/static/newName.pdf";
-```
