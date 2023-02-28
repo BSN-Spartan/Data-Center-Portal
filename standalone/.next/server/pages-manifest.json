@@ -1,0 +1,10 @@
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/404": "pages/404.js",
+  "/main/terms-of-service": "pages/main/terms-of-service.js",
+  "/": "pages/index.js",
+  "/500": "pages/500.js",
+  "/main/top-up-gas": "pages/main/top-up-gas.js"
+}

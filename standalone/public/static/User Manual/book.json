@@ -1,0 +1,81 @@
+{
+  "language": "zn-hans",
+  "styles": {
+    "website": "styles/website.css"
+  },
+  "title": "User Manual",
+
+  "plugins": [
+    "-fontsettings",
+    "-livereload",
+    "-sharing",
+    "-lunr",
+    "code",
+    "addcssjs",
+    "splitter",
+    "sharing-plus",
+    "hide-element",
+    "search-pro",
+    "insert-logo",
+    "tbfed-pagefooter",
+    "theme-comscore",
+    "favicon-absolute",
+    "popup",
+    "toggle-chapters",
+    "chapter-fold",
+    "ancre-navigation",
+    "auto-scroll-table",
+    "flexible-alerts"
+  ],
+  "pluginsConfig": {
+    "lunr": { "maxIndexSize": 20000 },
+    "addcssjs": {
+      "js": ["js/custom.js"]
+    },
+    "hide-element": {
+      "elements": [".gitbook-link"]
+    },
+    "insert-logo": {
+      "url": "../img/spartanlogo.svg",
+
+      "style": "background:none;max-height:55px;min-height:55px;margin-left:-25px;"
+    },
+    "sharing": {
+      "facebook": true,
+      "twitter": true,
+      "qq": true,
+      "weibo": true
+    },
+    "favicon-absolute": {
+      "favicon": "https://spartan.bsn.foundation/favicon.svg",
+      "appleTouchIconPrecomposed152": "https://spartan.bsn.foundation/favicon.svg",
+      "appleTouchIcon152":"https://spartan.bsn.foundation/favicon.svg"
+    },
+    "tbfed-pagefooter": {
+      "copyright": "Copyright © 2022 Red Date (Hong Kong) Technology Limited",
+      "modify_label":" ",
+      "modify_format":" "
+    },
+    "pluginsConfig": {
+      "flexible-alerts": {
+        "note": {
+          "label": "Hinweis"
+        },
+        "tip": {
+          "label": "Tipp"
+        },
+        "warning": {
+          "label": "Warnung"
+        },
+        "danger": {
+          "label": "Achtung"
+  },
+  "pluginsConfig": {
+    "flexible-alerts": {
+      "style": "callout",
+      "comment": {
+        "label": "Comment",
+        "icon": "fa fa-comments",
+        "className": "info"
+      }}}
+  }}}}

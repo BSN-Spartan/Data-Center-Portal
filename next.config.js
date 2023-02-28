@@ -1,4 +1,5 @@
-const baseURL = "data center url";
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { baseURL } = require("./config");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -15,6 +16,7 @@ const nextConfig = {
       "@/public/*": ["public/*"],
     },
   },
+  output: "standalone",
   reactStrictMode: false,
   swcMinify: true,
   images: {

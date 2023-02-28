@@ -1,0 +1,12 @@
+version: '3.1'
+services:
+  nodejs:
+    image: gengxiaofang/nodejs17.3_pm2-5.2.2:v1
+    ports:
+      - "3003:3000"
+    privileged: true
+    restart: always
+    volumes:
+      - ./standalone:/data
+    #command: [ "/bin/sh", "-c", "pm2-runtime start /data/server.js" ]
+    command: [ "/bin/sh", "-c", "pm2 start /data/server.js --no-daemon" ]
