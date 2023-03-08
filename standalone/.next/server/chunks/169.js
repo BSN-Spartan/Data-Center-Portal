@@ -107,7 +107,7 @@ const requestB = (url, option)=>{
  * @param option
  * @returns
  */ const fetch_getFetch = async (url, data, option)=>{
-    if (url.indexOf("http:") < 0 && url.indexOf("https:") < 0) url = "http://10.0.7.160:18888" + url;
+    if (url.indexOf("http:") < 0 && url.indexOf("https:") < 0) url = process.env.baseURL + url;
     let method = "GET", headers = new Headers({});
     if (data) {
         method = "POST";
