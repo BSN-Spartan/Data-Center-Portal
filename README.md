@@ -39,6 +39,8 @@ Recommended Requirements:
 
 Note: Data Center Gateway is provided by the Data Center Operator to its end-users for accessing the Spartan Network. It can protect the node access, and regulates the transaction amount of end-users. We strongly recommend that the Data Center Operator should set up the Data Center Gateway before installing the portal system.
 
+**You can either use the command line to deploy and start the portal referring to Chapter 2-4, or use the docker image to deploy and start the portal referring to Chapter 5.**
+
 ### 2. Download the Data Center Portal Deployment Package
 
 Download the data center portal deployment package to a local directory:
@@ -60,7 +62,7 @@ module.exports = {
 };
 ```
 
-Example:  baseURL:  "http://xx.xx.xx.xx:xxxx"
+Example:  baseURL:  "http://10.18.52.107:8085"
                    PORT:  "3000"
 
 *Note: After changing the port number of Data Center Portal or the URL of Data Center Management System, you must run the command below to rebuild the project.*
@@ -133,13 +135,13 @@ pm2 start server.js
 pm2 stop server.js
 ```
 
-### 5. Start the Service by docker-compose.yaml
+### 5. Build and Start the Data Center Portal by Docker
 
 Download the application package of the Data Center Portal from [here](https://raw.githubusercontent.com/BSN-Spartan/Data-Center-Portal/main/Deployment-package.zip).
 
 #### 5.1 Configure Application Package
 
-In Data-Center-Portal/standalone/config.js, change the baseURL to the link of Data Center Management System:
+In `Data-Center-Portal/standalone/config.js`, change the baseURL to the link of Data Center Management System:
 
 ```
 module.exports = {
@@ -147,11 +149,11 @@ module.exports = {
 };
 ```
 
-Example: baseURL: "http://xx.xx.xx.xx:xxxx"
+Example: baseURL: "http://10.18.52.107:8085"
 
 #### 5.2 Configure docker-compose.yaml
 
-For the port configuration in the file, you only need to modify the local port of the server. The corresponding service port in the container does not need to be modified. For example, only xxxx needs to be modified in `- "xxxx:3000"`.
+In the configuration file, you need only to modify the local port for this service. The corresponding service port in the container does not need to be modified. For example, if the URL of the portal is http://10.18.52.107:3333, you can change the ports as `- "3333:3000"`.
 
 ```
 'docker-compose.yaml'
@@ -177,7 +179,7 @@ services:
 docker-compose up -d
 ```
 
-2. If there are more than one yaml files in the directory, you can start the service by the following command:
+2. If there are more than one yaml files in the directory, you can start the service by specifying the file name, such as `xxxx.yaml`:
 
 ```
 docker-compose -f xxxx.yaml up -d
@@ -200,17 +202,17 @@ docker-compose -f xxxx.yaml down
 
 ### 6. User Manual Deployment
 
-After deployed the portal, you need to customize the default user manual to meet the actual business requirements.
+After deploying the portal, you need to customize the default user manual to meet the actual business requirements.
 
-We have provided the user manual in both word and markdown formats, which can be obtained through `Data-Center-Portal/public/static/` directory.
+We have provided the user manual in both .docx and .md versions, which can be obtained in `Data-Center-Portal/public/static/` directory.
 
-When using the user manual in markdown format, please ensure that you have installed gitbook locally. Here we take Windows system as an example to introduce how to install and use it:
+When using the user manual in markdown format, make sure you have already installed gitbook locally. Here we take Windows system as an example to introduce how to install and use it:
 
 1. Download and install Node.js from [Official Website](https://nodejs.org/download/release/v10.12.0/), you need to use a lower version of Node.js (for example v12.12.0) to install gitbook.
 
-2. Open command prompt and check the version:  `node -v` v12.12.0 `npm -v` 6.11.3
+2. Open command prompt and check the version: `node -v` v12.12.0 `npm -v` 6.11.3
 
-3. Install gitbook by command prompt:  `npm install gitbook-cli -g` Run command below to check the version:  `gitbook --version` CLI version: 2.3.2 GitBook version: 3.2.3
+3. Install gitbook by command prompt: `npm install gitbook-cli -g` Run command below to check the version: `gitbook --version` CLI version: 2.3.2 GitBook version: 3.2.3
 
 4. Create a folder and run command below to check whether gitbook has been successfully installed: `gitbook init`
 
